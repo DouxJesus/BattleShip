@@ -53,7 +53,7 @@ namespace Battleship2019
         public void StopServer()
         {
             clientSocket.Close();
-            serverSocket.Stop()
+            serverSocket.Stop();
         }
 
     }
