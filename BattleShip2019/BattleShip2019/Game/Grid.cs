@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleShip2019
 {
-    class Grid
+    class GridGame
     {
         private const int gridSize = 10;
         private Cell[,] Cells;
 
-        public Grid()
+        public GridGame()
         {
             Cells = new Cell[gridSize, gridSize];
             for(int i = 0; i < gridSize; i++)

@@ -8,13 +8,13 @@ namespace BattleShip2019
 {
     public class Game
     {
-        private Grid boatsGrid;
+        private GridGame boatsGrid;
         private Ship[] ships;
-        Grid attackGrid;
+        GridGame attackGrid;
         public Game()
         {
-            Grid boatsGrid = new Grid();
-            Grid attackGrid = new Grid();
+            GridGame boatsGrid = new GridGame();
+            GridGame attackGrid = new GridGame();
 
             Ship[] ships = new Ship[7];
             ships[0] = new Carrier(0);
