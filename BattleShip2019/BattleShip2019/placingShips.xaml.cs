@@ -23,14 +23,15 @@ namespace BattleShip2019
         public event EventHandler Play;
 
         private Grid[] MyGrid;
-        private List<Ship> MyShips;
+        public Ship[] MyShips;
+
 
         Path selectedShip;
         Ship myShip;
         Polygon selectedArrow;
         bool horizontalOrientation;
 
-        private int id;
+        //private int id;
         private int shipCount;
 
         public PlacingShips()
@@ -55,7 +56,7 @@ namespace BattleShip2019
 
         private void ResetGrid()
         {
-            id = 0;
+            //id = 0;
             foreach (Grid elmt in MyGrid)
             {
                 ResetGridElmt(elmt);
@@ -70,7 +71,7 @@ namespace BattleShip2019
 
             selectedShip = null;
 
-            MyShips = new List<Ship>();
+            MyShips = new Ship[7];
 
             ResetOrientation();
         }
@@ -121,21 +122,25 @@ namespace BattleShip2019
             switch (shipPath.Name)
             {
                 case "carrier":
-                    myShip = new Carrier(id);
+                    myShip = new Carrier(6);
                     break;
                 case "battleship":
-                    myShip = new Battleship(id);
+                    myShip = new Battleship(5);
                     break; 
                 case "cruiser1":
-                    myShip = new Cruiser(id);
+                    myShip = new Cruiser(4);
                     break;
                 case "destroyer1":
+                    myShip = new Destroyer(2);
+                    break;
                 case "destroyer2":
-                    myShip = new Destroyer(id);
+                    myShip = new Destroyer(3);
                     break;
                 case "submarine1":
+                    myShip = new Submarine(0);
+                    break;
                 case "submarine2":
-                    myShip = new Submarine(id);
+                    myShip = new Submarine(1);
                     break;
             }
 
@@ -178,8 +183,8 @@ namespace BattleShip2019
                 selectedShip.Opacity = 0.5;
                 selectedShip.Stroke = new SolidColorBrush(Colors.Black);
                 selectedShip = null;
-                MyShips.Add(myShip);
-                id++;
+                MyShips[myShip.Id] = myShip;
+                
                 shipCount++;
             }           
         }
@@ -194,29 +199,28 @@ namespace BattleShip2019
                 {
                     bool horizontal = MyShips[squareId].Horizontal;
                     int size = MyShips[squareId].Size;
-                    string name = MyShips[squareId].Name;
-                    switch (name)
+                    switch (squareId)
                     {
-                        case "Carrier":
+                        case 6:
                             ResetBoat(carrier);
                             break;
-                        case "Battleship":
+                        case 5:
                             ResetBoat(battleship);
                             break;
-                        case "Cruiser":
+                        case 4:
                             ResetBoat(cruiser1);
                             break;
-                        case "Destroyer":
-                            if(!destroyer1.IsEnabled)
-                                ResetBoat(destroyer1);
-                            else
-                                ResetBoat(destroyer2);
+                        case 3:
+                            ResetBoat(destroyer2);
                             break;
-                        case "Submarine":
-                            if(!submarine1.IsEnabled)
-                                ResetBoat(submarine1);
-                            else
-                                ResetBoat(submarine2);
+                        case 2:
+                            ResetBoat(destroyer1);
+                            break;
+                        case 1:
+                            ResetBoat(submarine2);
+                            break;
+                        case 0:
+                            ResetBoat(submarine1);
                             break;
                     }
 
@@ -413,7 +417,7 @@ namespace BattleShip2019
         private void btn_RandomClick(object sender, RoutedEventArgs e)
         {
             ResetGrid();
-            MyShips = new List<Ship> { new Submarine(0), new Submarine(1), new Destroyer(2), new Destroyer(3), new Cruiser(4), new Battleship(5), new Carrier(6)};
+            MyShips = new Ship[7] { new Submarine(0), new Submarine(1), new Destroyer(2), new Destroyer(3), new Cruiser(4), new Battleship(5), new Carrier(6)};
             Path[] MyPathsShips = new Path[] { submarine1, submarine2, destroyer1, destroyer2, cruiser1, battleship, carrier };
             foreach (Path ship in MyPathsShips)
             {
@@ -422,7 +426,7 @@ namespace BattleShip2019
                 ship.Stroke = new SolidColorBrush(Colors.Black);
             }
             Random random = new Random();
-            for(int i = 0; i < MyShips.Count; i++)
+            for(int i = 0; i < MyShips.Length; i++)
             {
                 int index = random.Next(0, 100);
                 horizontalOrientation = random.Next(0, 2) == 1 ? true: false;
@@ -432,9 +436,8 @@ namespace BattleShip2019
                     index = random.Next(0, 100);
                 }
                 placeShip(index);
-                MyShips[i] = myShip;
+                MyShips[myShip.Id] = myShip;
             }
-            id = 7;
             shipCount = 7;
             ResetOrientation();
         }

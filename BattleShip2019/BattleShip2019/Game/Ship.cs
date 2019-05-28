@@ -57,6 +57,7 @@ namespace BattleShip2019
         public int Id { get => id; }
         public int Size { get => size; }
         public int Pv { get => pv; }
+        public int Index { get => index; }
         public bool Horizontal { get => horizontalOrientation; }
         public SolidColorBrush ShipColor { get => shipColor;}
     }

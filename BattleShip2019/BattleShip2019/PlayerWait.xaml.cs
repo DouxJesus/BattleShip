@@ -38,6 +38,7 @@ namespace BattleShip2019
         public void btn_Ready(object sender, EventArgs e)
         {
             PlayerReady(this, e);
+            PlayerReady = null;
         }
     }
 }

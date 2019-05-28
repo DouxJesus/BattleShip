@@ -21,15 +21,22 @@ namespace BattleShip2019
     public partial class PlayGame : UserControl
     {
 
+        public event EventHandler Next;
+
         Grid[] MyGrid;
         Grid[] OppGrid;
 
+        int deadShips;
+
         Grid selectedGrid;
 
-        public PlayGame()
+        public PlayGame(string playername, Ship[] ships, Ship[] oppShips)
         {
             InitializeComponent();
             InitializeGrid();
+            LabelPlayer.Content = playername.ToUpper();
+            DrawShips(ships, false);
+            DrawShips(oppShips, true);
         }
 
         private void InitializeGrid()
@@ -67,6 +74,69 @@ namespace BattleShip2019
             }
         }
 
+        private void DrawShips(Ship[] ships, bool opponent)
+        {
+            foreach(Ship ship in ships)
+            {
+                DrawShip(ship, opponent);
+            }
+        }
+
+        private void DrawShip(Ship ship, bool opponent)
+        {
+            int index = ship.Index;
+            bool horizontalOrientation = ship.Horizontal;
+            int X = index / 10;
+            int size = ship.Size;
+            if (horizontalOrientation)
+            {
+                for (int i = 0; i < size; i++)
+                {
+                    if (index + i <= (X + 1) * 10)
+                    {
+                        if (!opponent)
+                        {
+                            MyGrid[index + i].Tag = ship.Id;
+                            MyGrid[index + i].Background = ship.ShipColor;
+                        }
+                        else
+                        {
+                            OppGrid[index + i].Tag = ship.Id;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Horizontal Error Index=" + index + " and i=" + i + ".", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ship.Size * 10; i += 10)
+                {
+                    if (index + i <= 99)
+                    {
+                        if (!opponent)
+                        {
+                            MyGrid[index + i].Tag = ship.Id;
+                            MyGrid[index + i].Background = ship.ShipColor;
+                        }
+                        else
+                        {
+                            OppGrid[index + i].Tag = ship.Id;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vertical Error Index=" + index + " and i=" + i + ".", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+
+                }
+            }
+        }
+
         private void ResetGridElmt(Grid elmt)
         {
             elmt.Tag = "water";
@@ -91,14 +161,31 @@ namespace BattleShip2019
                 }
                 selectedGrid = grid;
                 selectedGrid.IsEnabled = false;
-                selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#009400"));
-                MessageBox.Show("Col:" + col + " row:" + row, "You clicked", MessageBoxButton.OK, MessageBoxImage.Information);
+                selectedGrid.Background = new SolidColorBrush(Colors.Coral);
+                //MessageBox.Show("Col:" + col + " row:" + row, "You clicked", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
         private void btn_Submit(object sender, EventArgs e)
         {
-
+            if (selectedGrid != null)
+            {
+                if (selectedGrid.Tag.Equals("water"))
+                {
+                    selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2513C3"));
+                    selectedGrid.IsEnabled = false;
+                    MessageBox.Show("Flop! It's water", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#13C35A"));
+                    selectedGrid.IsEnabled = false;
+                    MessageBox.Show("Touch", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                selectedGrid = null;
+                Next(this, e);
+                Next = null;
+            }
         }
 
     }

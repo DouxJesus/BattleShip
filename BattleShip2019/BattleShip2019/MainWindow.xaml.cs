@@ -31,7 +31,8 @@ namespace BattleShip2019
 
         PlayerWait PlayerOneWait;
         PlayerWait PlayerTwoWait;
-        PlayGame playGame;
+        PlayGame playGamePlayerOne;
+        PlayGame playGamePlayerTwo;
 
         int currentTurn;
 
@@ -45,7 +46,7 @@ namespace BattleShip2019
             this.Width = 800;
             this.Height = 500;
 
-
+            gameType = GameType.OneVersusOne;
             //Menu
             //Ask players names
             //initialize waitframes
@@ -75,22 +76,23 @@ namespace BattleShip2019
                 else
                 {
                     currentTurn = 2;
-                    playerOneplacingShips.Play += new EventHandler(Wait);
+                    playerOneplacingShips.Play += new EventHandler(WaitInitialize);
                 }
             }
             else
             {
                 playerTwoplacingShips = new PlacingShips();
-                Window.Children.Add(playerTwoplacingShips);   
+                Window.Children.Add(playerTwoplacingShips);
+                currentTurn = 1;
                 playerTwoplacingShips.Play += new EventHandler(PlayStart);
             }
            
         }
 
-        private void Wait(object sender, EventArgs e)
+        private void WaitInitialize(object sender, EventArgs e)
         {
             Window.Children.Clear();
-            if (sender.GetType() == playerOneplacingShips.GetType())
+            if (currentTurn == 2)
             {
                 Window.Children.Add(PlayerTwoWait);
                 PlayerTwoWait.PlayerReady += new EventHandler(ShipInitialize);
@@ -98,11 +100,49 @@ namespace BattleShip2019
             
         }
 
+        private void WaitTurn(object sender, EventArgs e)
+        {
+            Window.Children.Clear();
+            currentTurn = currentTurn == 1 ? 2 : 1;
+            if (currentTurn == 2)
+            {
+                Window.Children.Add(PlayerTwoWait);
+                PlayerTwoWait.PlayerReady += new EventHandler(Turn);
+            }
+            else
+            {
+                Window.Children.Add(PlayerOneWait);
+                PlayerOneWait.PlayerReady += new EventHandler(Turn);
+            }
+
+        }
+
         private void PlayStart(object sender, EventArgs e)
         {
             Window.Children.Clear();
-            playGame = new PlayGame();
-            Window.Children.Add(playGame);
+            playGamePlayerOne = new PlayGame("player1",playerOneplacingShips.MyShips, playerTwoplacingShips.MyShips);
+            playGamePlayerTwo = new PlayGame("player2", playerTwoplacingShips.MyShips, playerOneplacingShips.MyShips);
+            currentTurn = 1;
+            Window.Children.Add(PlayerOneWait);
+            PlayerOneWait.PlayerReady += new EventHandler(Turn);
+
+        }
+
+        private void Turn(object sender, EventArgs e)
+        {
+            Window.Children.Clear();
+            if (currentTurn == 1)
+            {
+                Window.Children.Add(playGamePlayerOne);
+                playGamePlayerOne.Next += null;
+                playGamePlayerOne.Next += new EventHandler(WaitTurn);
+            }
+            else
+            {
+                Window.Children.Add(playGamePlayerTwo);
+                playGamePlayerTwo.Next += null;
+                playGamePlayerTwo.Next += new EventHandler(WaitTurn);
+            }
         }
 
     }
