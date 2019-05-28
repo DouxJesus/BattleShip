@@ -10,15 +10,14 @@ namespace BattleShip2019
 {
     public class Ship
     {
-        /*protected*/ bool alive;
-        /*protected*/ int size;
-        /*protected*/ int pv;
-        /*protected*/ int id;
-        /*protected*/ int index;
-        /*protected*/ int x;
-        /*protected*/ int y;
-        /*protected*/ bool horizontalOrientation;
-        /*protected*/ SolidColorBrush shipColor;
+        protected bool alive;
+        protected int size;
+        protected int pv;
+        protected int id;
+        protected int index;
+        protected string name;
+        protected bool horizontalOrientation;
+        protected SolidColorBrush shipColor;
 
 
         protected Ship(int size, int id)
@@ -26,9 +25,8 @@ namespace BattleShip2019
             alive = true;
             this.size = size;
             pv = size;
+            name = "";
             this.id = id;
-            this.x = -1;
-            this.y = -1;
             this.index = -1;
             horizontalOrientation = true;
             shipColor = new SolidColorBrush(Colors.Gray);
@@ -42,30 +40,25 @@ namespace BattleShip2019
             return alive;
         }
 
-        public bool SetCoordinates(int index, bool vertical)
+        public bool SetCoordinates(int index, bool horizontal)
         {
-            if (this.x != -1 && this.y != -1)
+            if (this.index == -1)
             {
                 this.index = index;
-                this.horizontalOrientation = vertical;
+                this.horizontalOrientation = horizontal;
                 return true;
             }
             else
                 return false;
         }
 
-        public string Name()
-        {
-            return "";
-        }
+        public string Name { get => name; }
 
         public int Id { get => id; }
         public int Size { get => size; }
         public int Pv { get => pv; }
-        public int X { get => x; }
-        public int Y { get => y; }
         public bool Horizontal { get => horizontalOrientation; }
-        public SolidColorBrush ShipColor { get => shipColor;/* set => shipColor = value; */}
+        public SolidColorBrush ShipColor { get => shipColor;}
     }
 
    public class Cruiser : Ship
@@ -73,12 +66,10 @@ namespace BattleShip2019
         
         public Cruiser(int id) : base(3, id)
         {
+            this.shipColor = new SolidColorBrush(Colors.Gray);
+            this.name = "Cruiser";
         }
 
-        public new string Name()
-        {
-            return "Cruiser";
-        }
     }
 
     public class Destroyer : Ship
@@ -86,21 +77,18 @@ namespace BattleShip2019
 
         public Destroyer(int id) : base(2, id)
         {
+            this.shipColor = new SolidColorBrush(Colors.DimGray);
+            this.name = "Destroyer";
         }
-        public new string Name()
-        {
-            return "Destroyer";
-        }
+        
     }
     public class Submarine : Ship
     {
 
         public Submarine(int id) : base(1, id)
         {
-        }
-        public new string Name()
-        {
-            return "Submarine";
+            this.shipColor = new SolidColorBrush(Colors.DarkSlateGray);
+            this.name = "Submarine";
         }
     }
     public class Battleship : Ship
@@ -108,10 +96,8 @@ namespace BattleShip2019
 
         public Battleship(int id) : base(4, id)
         {
-        }
-        public new string Name()
-        {
-            return "Battleship";
+            this.shipColor = new SolidColorBrush(Colors.DarkGray);
+            this.name = "Battleship";
         }
     }
     public class Carrier : Ship
@@ -119,11 +105,8 @@ namespace BattleShip2019
 
         public Carrier(int id) : base(5, id)
         {
-        }
-
-        public new string Name()
-        {
-            return "Carrier";
+            this.shipColor = new SolidColorBrush(Colors.SlateGray);
+            this.name = "Carrier";
         }
     }
 }

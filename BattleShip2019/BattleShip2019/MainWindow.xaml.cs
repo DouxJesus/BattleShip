@@ -22,25 +22,53 @@ namespace BattleShip2019
     {
         Grid Window = new Grid();
 
-        PlacingShips placingShips;
+        PlacingShips playerOneplacingShips;
+        PlacingShips playerTwoplacingShips;
+
+        PlayerWait PlayerOneWait;
+        PlayerWait PlayerTwoWait;
+        PlayGame playGame;
+
         public MainWindow()
         {
             
             InitializeComponent();
             Content = Window;
+            this.MinWidth = 800;
+            this.MinHeight = 500;
+            this.Width = 800;
+            this.Height = 500;
 
-            placingShips = new PlacingShips();
-            Window.Children.Add(placingShips);
 
+            //Menu
+            //Ask players names
+            //initialize waitframes
+
+            this.MinWidth = 500;
+            this.MinHeight = 500;
+            this.Width = 953.286;
+            this.Height = 600;
+            PlayerOneWait = new PlayerWait("Player 1", 1);
+            //PlayerTwoWait = new PlayerWait("Player 2", 2);
+            Window.Children.Add(PlayerOneWait);
+            PlayerOneWait.PlayerReady += new EventHandler(ShipInitialize);
+            
         }
 
-        //private void OnButtonClick(object sender, RoutedEventArgs e)
-        //{
-        //    Button btn = (Button) sender;
-        //    string name = btn.Name;
-        //    int x = name[3] - '0';
-        //    int y = name[4] - 'A';
+        private void ShipInitialize(object sender, EventArgs e)
+        {
+            Window.Children.Clear();
+            playerOneplacingShips = new PlacingShips();
+            Window.Children.Add(playerOneplacingShips);
+            playerOneplacingShips.Play += new EventHandler(PlayStart);
+        }
 
-        //}
+        private void PlayStart(object sender, EventArgs e)
+        {
+            Window.Children.Clear();
+            playGame = new PlayGame();
+            Window.Children.Add(playGame);
+        }
+
     }
 }

@@ -20,7 +20,7 @@ namespace BattleShip2019
     /// </summary>
     public partial class PlacingShips : UserControl
     {
-        public event EventHandler play;
+        public event EventHandler Play;
 
         private Grid[] MyGrid;
         private List<Ship> MyShips;
@@ -31,6 +31,7 @@ namespace BattleShip2019
         bool horizontalOrientation;
 
         private int id;
+        private int shipCount;
 
         //Universal Color Code
         SolidColorBrush colorOnSelect =  new SolidColorBrush(Colors.Coral);
@@ -55,39 +56,56 @@ namespace BattleShip2019
 
         }
 
+        //RESET
+
         private void ResetGrid()
         {
             id = 0;
             foreach (Grid elmt in MyGrid)
             {
-                elmt.Tag = "water";
-                elmt.Background = (SolidColorBrush) (new BrushConverter().ConvertFrom("#0094d9"));
+                ResetGridElmt(elmt);
             }
 
             Path[] MyPathsShips = new Path[] { submarine1, submarine2, destroyer1, destroyer2, cruiser1, battleship, carrier };
             foreach (Path ship in MyPathsShips)
             {
-                ship.IsEnabled = true;
-                ship.Opacity = 100;
+                ResetBoat(ship);
             }
-            if(selectedShip != null)
-            {
-                selectedShip.Stroke = new SolidColorBrush(Colors.Black);
-            }
+
             selectedShip = null;
 
             MyShips = new List<Ship>();
 
+            ResetOrientation();
+        }
+
+        private void ResetOrientation()
+        {
             if (selectedArrow != null)
             {
                 selectedArrow.Stroke = new SolidColorBrush(Colors.Black);
             }
             selectedArrow = rightPoly;
             horizontalOrientation = true;
-            rightPoly.Stroke = new SolidColorBrush(Colors.WhiteSmoke);
-
+            rightPoly.Stroke = new SolidColorBrush(Colors.Coral);
         }
 
+        private void ResetBoat(Path ship)
+        {
+            ship.IsEnabled = true;
+            ship.Opacity = 100;
+            ship.Stroke = new SolidColorBrush(Colors.Black);
+        }
+
+        private void ResetGridElmt(Grid elmt)
+        {
+            elmt.Tag = "water";
+            elmt.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0094d9"));
+        }
+
+
+
+        //EVENTS
 
         private void ship_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -98,8 +116,7 @@ namespace BattleShip2019
             }
             if (selectedShip != null)
             {
-                selectedShip.Opacity = 100;
-                selectedShip.Stroke = new SolidColorBrush(Colors.Black);
+                ResetBoat(selectedShip);
             }
 
             shipPath.Opacity = .95;
@@ -114,13 +131,17 @@ namespace BattleShip2019
                     myShip = new Battleship(id);
                     break; 
                 case "cruiser1":
-                case "cruiser2":
                     myShip = new Cruiser(id);
                     break;
-                case "destroyer":
+                case "destroyer1":
+                    myShip = new Destroyer(id);
+                    break;
+                case "destroyer2":
                     myShip = new Destroyer(id);
                     break;
                 case "submarine1":
+                    myShip = new Submarine(id);
+                    break;
                 case "submarine2":
                     myShip = new Submarine(id);
                     break;
@@ -142,6 +163,11 @@ namespace BattleShip2019
         {
             Grid square = (Grid)sender;
             int index = -1;
+            if (!square.Tag.Equals("water"))
+            {
+                dropShip(square);
+                return;
+            }
             if (selectedShip == null)
             {
                 MessageBox.Show("You must choose a ship", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -153,18 +179,101 @@ namespace BattleShip2019
             }
             
             index = Array.IndexOf(MyGrid, square);
-            if(checkAvailablePlacement(ref index))
+            if(checkAvailablePlacement(ref index, true))
             {
                 placeShip(index);
                 selectedShip.IsEnabled = false;
                 selectedShip.Opacity = 0.5;
+                selectedShip.Stroke = new SolidColorBrush(Colors.Black);
                 selectedShip = null;
                 MyShips.Add(myShip);
                 id++;
+                shipCount++;
             }           
         }
 
-        private bool checkAvailablePlacement(ref int index)
+        private void dropShip(Grid square)
+        {
+            if (!square.Tag.Equals("water"))
+            {
+                int squareId = Int32.Parse(square.Tag.ToString());
+                int index = Array.IndexOf(MyGrid, square);
+                if (MyShips[squareId] != null && MyShips[squareId].Id == squareId)
+                {
+                    bool horizontal = MyShips[squareId].Horizontal;
+                    int size = MyShips[squareId].Size;
+                    string name = MyShips[squareId].Name;
+                    switch (name)
+                    {
+                        case "Carrier":
+                            ResetBoat(carrier);
+                            break;
+                        case "Battleship":
+                            ResetBoat(battleship);
+                            break;
+                        case "Cruiser":
+                            ResetBoat(cruiser1);
+                            break;
+                        case "Destroyer":
+                            if(!destroyer1.IsEnabled)
+                                ResetBoat(destroyer1);
+                            else
+                                ResetBoat(destroyer2);
+                            break;
+                        case "Submarine":
+                            if(!submarine1.IsEnabled)
+                                ResetBoat(submarine1);
+                            else
+                                ResetBoat(submarine2);
+                            break;
+                    }
+
+                    MyShips[squareId] = null;
+
+                    dropGraphicShip(index, squareId, horizontal, size);
+                    shipCount--;
+                }
+                else
+                {
+                    MessageBox.Show("Operation failed", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+
+        private void dropGraphicShip(int index, int id, bool horizontal, int size)
+        {
+            int counter = 0;
+            int X = index / 10;
+
+            int incr = 1;
+            int max = (X + 1) * 10;
+            if (!horizontal)
+            {
+                incr = 10;
+                max = 100;
+            }
+
+            for (int i = 0; i < size * incr; i += incr)
+            {
+                if (index + i < max && MyGrid[index + i].Tag.Equals(id))
+                {
+                    MyGrid[index + i].Tag = "water";
+                    MyGrid[index + i].Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0094d9"));
+                }
+                else
+                {
+                    counter+=incr;
+                    if (index - counter > 0 && MyGrid[index - counter].Tag.Equals(id))
+                    {
+                        MyGrid[index - counter].Tag = "water";
+                        MyGrid[index - counter].Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0094d9"));
+                    }
+                }
+            }
+        }
+
+        private bool checkAvailablePlacement(ref int index, bool errorPopUp)
         {
             int counter = 0;
             int X = index / 10;
@@ -175,7 +284,7 @@ namespace BattleShip2019
                 {
                     for (int i = 0; i < size; i++)
                     {
-                        if (index + i <= (X + 1) * 10)
+                        if (index + i < (X + 1) * 10)
                         {
                             if (!MyGrid[index + i].Tag.Equals("water"))
                             {
@@ -196,7 +305,8 @@ namespace BattleShip2019
                 }
                 catch (IndexOutOfRangeException iore)
                 {
-                    MessageBox.Show(iore.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if(errorPopUp)
+                        MessageBox.Show(iore.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
             }
@@ -204,7 +314,7 @@ namespace BattleShip2019
             {
                 try
                 {
-                    for (int i = 0; i < myShip.Size * 10; i += 10)
+                    for (int i = 0; i < size * 10; i += 10)
                     {
                         if (index + i <= 99)
                         {
@@ -229,10 +339,12 @@ namespace BattleShip2019
                 }
                 catch (IndexOutOfRangeException iore)
                 {
-                    MessageBox.Show(iore.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (errorPopUp)
+                        MessageBox.Show(iore.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
             }
+
             index -= counter;
             return true;
         }
@@ -243,16 +355,16 @@ namespace BattleShip2019
         /// <param name="index"></param>
         private void placeShip(int index)
         {
-            myShip.SetCoordinates(index, horizontalOrientation);
+           
             int X = index / 10;
             int size = myShip.Size;
             if (horizontalOrientation)
             {
-                for (int i = 0; i < myShip.Size; i++)
+                for (int i = 0; i < size; i++)
                 {
                     if (index + i <= (X + 1) * 10)
                     {
-                        MyGrid[index + i].Tag = myShip.Name();
+                        MyGrid[index + i].Tag = myShip.Id;
                         MyGrid[index + i].Background = myShip.ShipColor;
                     }
                     else
@@ -268,7 +380,7 @@ namespace BattleShip2019
                 {
                     if (index + i <= 99)
                     {
-                        MyGrid[index + i].Tag = myShip.Name();
+                        MyGrid[index + i].Tag = myShip.Id;
                         MyGrid[index + i].Background = myShip.ShipColor;
                     }
                     else
@@ -279,6 +391,7 @@ namespace BattleShip2019
                    
                 }
             }
+            myShip.SetCoordinates(index, horizontalOrientation);
         }
 
         /// <summary>
@@ -288,11 +401,11 @@ namespace BattleShip2019
         /// <param name="e"></param>
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (MyShips.Count != 7)
+            if (shipCount != 7)
             {
                 return;
             }
-            play(this, e);
+            Play(this, e);
         }
 
         /// <summary>
@@ -305,6 +418,34 @@ namespace BattleShip2019
             ResetGrid();
         }
 
+        private void btn_RandomClick(object sender, RoutedEventArgs e)
+        {
+            ResetGrid();
+            MyShips = new List<Ship> { new Submarine(0), new Submarine(1), new Destroyer(2), new Destroyer(3), new Cruiser(4), new Battleship(5), new Carrier(6)};
+            Path[] MyPathsShips = new Path[] { submarine1, submarine2, destroyer1, destroyer2, cruiser1, battleship, carrier };
+            foreach (Path ship in MyPathsShips)
+            {
+                ship.IsEnabled = false;
+                ship.Opacity = 0.5;
+                ship.Stroke = new SolidColorBrush(Colors.Black);
+            }
+            Random random = new Random();
+            for(int i = 0; i < MyShips.Count; i++)
+            {
+                int index = random.Next(0, 100);
+                horizontalOrientation = random.Next(0, 2) == 1 ? true: false;
+                myShip = MyShips[i];
+                while(!checkAvailablePlacement(ref index, false))
+                {
+                    index = random.Next(0, 100);
+                }
+                placeShip(index);
+                MyShips[i] = myShip;
+            }
+            id = 7;
+            shipCount = 7;
+            ResetOrientation();
+        }
 
     }
 }

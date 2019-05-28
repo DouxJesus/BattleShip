@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="BattleShip2019.PlayerWait"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BattleShip2019"
+             
+             Background="#2CB030">
+    <Grid x:Name="gridBack"  Width="800" Height="500" VerticalAlignment="Top">
+                <Label  x:Name="LabelPlayer"  Content="PLAYER 1" FontSize="50" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Left" Margin="290,124,0,0" VerticalAlignment="Top" Height="69" Width="291"/>
+        <Label Content="TURN" FontSize="50" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Left" Margin="320,193,0,0" VerticalAlignment="Top" Height="105" Width="151"/>
+        <Button  x:Name="btnReady" Click="btn_Ready" Content="READY" FontSize="30" FontWeight="DemiBold" Foreground ="White" Background="#5FE564" HorizontalAlignment="Left" Margin="320,298,0,0" VerticalAlignment="Top" Width="151" Height="56"/>
+
+    </Grid>
+</UserControl>
