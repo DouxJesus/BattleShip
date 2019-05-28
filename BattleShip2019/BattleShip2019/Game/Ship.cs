@@ -66,7 +66,7 @@ namespace BattleShip2019
         
         public Cruiser(int id) : base(3, id)
         {
-            this.shipColor = new SolidColorBrush(Colors.Gray);
+            this.shipColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fbfd64"));
             this.name = "Cruiser";
         }
 
@@ -77,7 +77,7 @@ namespace BattleShip2019
 
         public Destroyer(int id) : base(2, id)
         {
-            this.shipColor = new SolidColorBrush(Colors.DimGray);
+            this.shipColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fb3980"));
             this.name = "Destroyer";
         }
         
@@ -87,7 +87,7 @@ namespace BattleShip2019
 
         public Submarine(int id) : base(1, id)
         {
-            this.shipColor = new SolidColorBrush(Colors.DarkSlateGray);
+            this.shipColor = new SolidColorBrush(Colors.DarkOrange);
             this.name = "Submarine";
         }
     }
@@ -96,7 +96,7 @@ namespace BattleShip2019
 
         public Battleship(int id) : base(4, id)
         {
-            this.shipColor = new SolidColorBrush(Colors.DarkGray);
+            this.shipColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#51fd64"));
             this.name = "Battleship";
         }
     }
@@ -105,7 +105,7 @@ namespace BattleShip2019
 
         public Carrier(int id) : base(5, id)
         {
-            this.shipColor = new SolidColorBrush(Colors.SlateGray);
+            this.shipColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#DE003F"));
             this.name = "Carrier";
         }
     }

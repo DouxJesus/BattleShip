@@ -3,10 +3,1594 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BattleShip2019"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             xmlns:local="clr-namespace:BattleShip2019"        
+             Background="#A1DFF6" Height="497.341">
+    <Grid Width="984" Height="416">
+        <Grid x:Name="myGrid" Width="300" Height="300" VerticalAlignment="Top" Margin="0,60,400,0" 
+ Background="#FFEDDBDB">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridA10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellA10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridB10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellB10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridC10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellC10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridD10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellD10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridE10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellE10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridF10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellF10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridG10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellG10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridH10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellH10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridI10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellI10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ1" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ2" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ3" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ4" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ5" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ6" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ7" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ8" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ9" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="#81CEF5" BorderThickness="1">
+                <Grid Name="myGridJ10" 
+Height="30" Width="30" 
+Background="#00436b">
+                    <Path Name="myCellJ10" />
+                </Grid>
+            </Border>
+
+            <Label x:Name="lblHorizontal" Grid.ColumnSpan="10" Content="  1       2       3       4       5       6       7       8       9       10"
+               HorizontalAlignment="Left" Margin="-2,31.6,0,-30" Grid.Row="9" Width="300" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalA" Content="A" Margin="-33,2,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalB" Content="B" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalC" Content="C" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="2" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalD" Content="D" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="3" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalE" Content="E" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="4" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalF" Content="F" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="5" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalG" Content="G" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="6" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalH" Content="H" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="7" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalI" Content="I" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="lblVerticalJ" Content="J" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+
+        </Grid>
+
+        <Grid x:Name="OpponentGrid" Width="300" Height="300" VerticalAlignment="Top" Margin="400,60,0,0" 
+ Background="#FFEDDBDB">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridA10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellA10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridB10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellB10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridC10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellC10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridD10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellD10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="4" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridE10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellE10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="5" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridF10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellF10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="6" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridG10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellG10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="7" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridH10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellH10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="8" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridI10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellI10" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ1" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ1" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ2" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ2" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ3" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ3" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ4" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ4" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ5" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ5" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ6" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ6" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ7" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ7" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ8" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ8" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ9" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ9" />
+                </Grid>
+            </Border>
+            <Border Grid.Row="9" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+                <Grid Name="oppGridJ10" 
+Height="30" Width="30" MouseDown="oppGridMouseDown" 
+Background="#00436b">
+                    <Rectangle MouseDown="oppGridMouseDown"/>
+                    <Path Name="oppCellJ10" />
+                </Grid>
+            </Border>
+            <Label x:Name="opplblHorizontal" Grid.ColumnSpan="10" Content="  1       2       3       4       5       6       7       8       9       10"
+               HorizontalAlignment="Left" Margin="-2,31.6,0,-30" Grid.Row="9" Width="300" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalA" Content="A" Margin="-33,2,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalB" Content="B" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalC" Content="C" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="2" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalD" Content="D" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="3" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalE" Content="E" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="4" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalF" Content="F" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="5" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalG" Content="G" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="6" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalH" Content="H" Margin="-33,0.6,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="7" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalI" Content="I" Margin="-33,1,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" FontFamily="Stencil" FontSize="14.667"/>
+            <Label x:Name="opplblVerticalJ" Content="J" Margin="-33,30,0,0" VerticalAlignment="Top" Height="29" HorizontalAlignment="Left" Width="29" Grid.Row="8" Grid.RowSpan="2" FontFamily="Stencil" FontSize="14.667"/>
+
+        </Grid>
+
+        <Button x:Name="btnSubmit" Content="SUBMIT" HorizontalAlignment="Left" Height="32" Margin="795,394,0,-10" VerticalAlignment="Top" Width="90" Click="btn_Submit" Background="#FF5284C0" BorderBrush="#FFC1C0E8" FontWeight="Bold" Foreground="White" FontSize="14.667"/>
+        <Label  x:Name="LabelPlayer"  Content="PLAYER" FontSize="40" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Left" Margin="51,-14,0,0" VerticalAlignment="Top" Height="69" Width="291"/>
+        <Label  x:Name="LabelOpp"  Content="OPPONENT" FontSize="40" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Left" Margin="511,-14,0,0" VerticalAlignment="Top" Height="69" Width="291"/>
     </Grid>
 </UserControl>

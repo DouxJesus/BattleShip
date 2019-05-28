@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BattleShip2019"
-            
+             xmlns:local="clr-namespace:BattleShip2019"        
              Background="#A1DFF6">
-    <Grid Width="300" Height="300" VerticalAlignment="Top" Margin="0,60,60.4,0" 
-          Background="#FFEDDBDB" Name="shipyardGrid">
+    <Grid x:Name="Grid" Width="300" Height="300" VerticalAlignment="Top" Margin="0,60,60.4,0" 
+ Background="#FFEDDBDB">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -32,611 +31,807 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Name="gridA1" Grid.Row="0" Grid.Column="0 " MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA1" />
-        </Grid>
-        <Grid Name="gridA2" Grid.Row="0" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA2" />
-        </Grid>
-        <Grid Name="gridA3" Grid.Row="0" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA3" />
-        </Grid>
-        <Grid Name="gridA4" Grid.Row="0" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA4" />
-        </Grid>
-        <Grid Name="gridA5" Grid.Row="0" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA5"  />
-        </Grid>
-        <Grid Name="gridA6" Grid.Row="0" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA6" />
-        </Grid>
-        <Grid Name="gridA7" Grid.Row="0" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA7" />
-        </Grid>
-        <Grid Name="gridA8" Grid.Row="0" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA8" />
-        </Grid>
-        <Grid Name="gridA9" Grid.Row="0" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA9" />
-        </Grid>
-        <Grid Name="gridA10" Grid.Row="0" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellA10" />
-        </Grid>
-        <Grid Name="gridB1" Grid.Row="1" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB1" />
-        </Grid>
-        <Grid Name="gridB2" Grid.Row="1" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB2" />
-        </Grid>
-        <Grid Name="gridB3" Grid.Row="1" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB3" HorizontalAlignment="Right" Width="30.4" />
+        <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridA10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellA10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridB10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellB10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridC10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellC10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridD10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellD10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridE10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellE10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridF10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellF10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridG10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellG10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridH10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellH10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridI10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellI10" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ1" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ1" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ2" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ2" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ3" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ3" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ4" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ4" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ5" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ5" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="5" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ6" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ6" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ7" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ7" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="7" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ8" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ8" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ9" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ9" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="9" Grid.Column="9" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="White" BorderThickness="1">
+            <Grid Name="gridJ10" 
+Height="30" Width="30" MouseDown="gridMouseDown" 
+Background="#00436b">
+                <Rectangle MouseDown="gridMouseDown"/>
+                <Path Name="cellJ10" />
+            </Grid>
+        </Border>
 
-        </Grid>
-        <Grid Name="gridB4" Grid.Row="1" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB4" />
-        </Grid>
-        <Grid Name="gridB5" Grid.Row="1" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB5" />
-        </Grid>
-        <Grid Name="gridB6" Grid.Row="1" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB6" />
-        </Grid>
-        <Grid Name="gridB7" Grid.Row="1" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB7" />
-        </Grid>
-        <Grid Name="gridB8" Grid.Row="1" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB8" />
-        </Grid>
-        <Grid Name="gridB9" Grid.Row="1" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB9" />
-        </Grid>
-        <Grid Name="gridB10" Grid.Row="1" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellB10" />
-        </Grid>
-        <Grid Name="gridC1" Grid.Row="2" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC1" />
-        </Grid>
-        <Grid Name="gridC2" Grid.Row="2" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC2" />
-        </Grid>
-        <Grid Name="gridC3" Grid.Row="2" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC3" />
-        </Grid>
-        <Grid Name="gridC4" Grid.Row="2" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC4" />
-        </Grid>
-        <Grid Name="gridC5" Grid.Row="2" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC5" />
-        </Grid>
-        <Grid Name="gridC6" Grid.Row="2" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC6" />
-        </Grid>
-        <Grid Name="gridC7" Grid.Row="2" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC7" />
-        </Grid>
-        <Grid Name="gridC8" Grid.Row="2" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC8" />
-        </Grid>
-        <Grid Name="gridC9" Grid.Row="2" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC9" />
-        </Grid>
-        <Grid Name="gridC10" Grid.Row="2" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellC10" />
-        </Grid>
-        <Grid Name="gridD1" Grid.Row="3" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD1" />
-        </Grid>
-        <Grid Name="gridD2" Grid.Row="3" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD2" />
-        </Grid>
-        <Grid Name="gridD3" Grid.Row="3" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD3" />
-        </Grid>
-        <Grid Name="gridD4" Grid.Row="3" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD4" />
-        </Grid>
-        <Grid Name="gridD5" Grid.Row="3" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD5" />
-        </Grid>
-        <Grid Name="gridD6" Grid.Row="3" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD6" />
-        </Grid>
-        <Grid Name="gridD7" Grid.Row="3" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD7" />
-        </Grid>
-        <Grid Name="gridD8" Grid.Row="3" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD8" />
-        </Grid>
-        <Grid Name="gridD9" Grid.Row="3" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD9" />
-        </Grid>
-        <Grid Name="gridD10" Grid.Row="3" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellD10" />
-        </Grid>
-        <Grid Name="gridE1" Grid.Row="4" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE1" />
-        </Grid>
-        <Grid Name="gridE2" Grid.Row="4" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE2" />
-        </Grid>
-        <Grid Name="gridE3" Grid.Row="4" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE3" />
-        </Grid>
-        <Grid Name="gridE4" Grid.Row="4" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE4" />
-        </Grid>
-        <Grid Name="gridE5" Grid.Row="4" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE5" />
-        </Grid>
-        <Grid Name="gridE6" Grid.Row="4" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE6" />
-        </Grid>
-        <Grid Name="gridE7" Grid.Row="4" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE7" />
-        </Grid>
-        <Grid Name="gridE8" Grid.Row="4" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE8" />
-        </Grid>
-        <Grid Name="gridE9" Grid.Row="4" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE9" />
-        </Grid>
-        <Grid Name="gridE10" Grid.Row="4" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellE10" />
-        </Grid>
-        <Grid Name="gridF1" Grid.Row="5" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF1" />
-        </Grid>
-        <Grid Name="gridF2" Grid.Row="5" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF2" />
-        </Grid>
-        <Grid Name="gridF3" Grid.Row="5" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF3" />
-        </Grid>
-        <Grid Name="gridF4" Grid.Row="5" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="13*"/>
-                <ColumnDefinition Width="17*"/>
-            </Grid.ColumnDefinitions>
-            <Rectangle MouseDown="gridMouseDown" Grid.ColumnSpan="2" Margin="0,0,-0.4,-0.4"/>
-            <Path Name="cellF4" Grid.ColumnSpan="2" />
-        </Grid>
-        <Grid Name="gridF5" Grid.Row="5" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF5" />
-        </Grid>
-        <Grid Name="gridF6" Grid.Row="5" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF6" />
-        </Grid>
-        <Grid Name="gridF7" Grid.Row="5" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF7" />
-        </Grid>
-        <Grid Name="gridF8" Grid.Row="5" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF8" />
-        </Grid>
-        <Grid Name="gridF9" Grid.Row="5" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF9" />
-        </Grid>
-        <Grid Name="gridF10" Grid.Row="5" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellF10" />
-        </Grid>
-        <Grid Name="gridG1" Grid.Row="6" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG1" />
-        </Grid>
-        <Grid Name="gridG2" Grid.Row="6" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG2" />
-        </Grid>
-        <Grid Name="gridG3" Grid.Row="6" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG3" />
-        </Grid>
-        <Grid Name="gridG4" Grid.Row="6" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG4" />
-        </Grid>
-        <Grid Name="gridG5" Grid.Row="6" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG5" />
-        </Grid>
-        <Grid Name="gridG6" Grid.Row="6" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG6" />
-        </Grid>
-        <Grid Name="gridG7" Grid.Row="6" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG7" />
-        </Grid>
-        <Grid Name="gridG8" Grid.Row="6" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG8" />
-        </Grid>
-        <Grid Name="gridG9" Grid.Row="6" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG9" />
-        </Grid>
-        <Grid Name="gridG10" Grid.Row="6" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellG10" />
-        </Grid>
-        <Grid Name="gridH1" Grid.Row="7" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH1" />
-        </Grid>
-        <Grid Name="gridH2" Grid.Row="7" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH2" />
-        </Grid>
-        <Grid Name="gridH3" Grid.Row="7" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH3" />
-        </Grid>
-        <Grid Name="gridH4" Grid.Row="7" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH4" />
-        </Grid>
-        <Grid Name="gridH5" Grid.Row="7" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH5" />
-        </Grid>
-        <Grid Name="gridH6" Grid.Row="7" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH6" />
-        </Grid>
-        <Grid Name="gridH7" Grid.Row="7" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH7" />
-        </Grid>
-        <Grid Name="gridH8" Grid.Row="7" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH8" />
-        </Grid>
-        <Grid Name="gridH9" Grid.Row="7" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH9" />
-        </Grid>
-        <Grid Name="gridH10" Grid.Row="7" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellH10" />
-        </Grid>
-        <Grid Name="gridI1" Grid.Row="8" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI1" />
-        </Grid>
-        <Grid Name="gridI2" Grid.Row="8" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI2" />
-        </Grid>
-        <Grid Name="gridI3" Grid.Row="8" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI3" />
-        </Grid>
-        <Grid Name="gridI4" Grid.Row="8" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI4" />
-        </Grid>
-        <Grid Name="gridI5" Grid.Row="8" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI5" />
-        </Grid>
-        <Grid Name="gridI6" Grid.Row="8" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI6" />
-        </Grid>
-        <Grid Name="gridI7" Grid.Row="8" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI7" />
-        </Grid>
-        <Grid Name="gridI8" Grid.Row="8" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI8" />
-        </Grid>
-        <Grid Name="gridI9" Grid.Row="8" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI9" />
-        </Grid>
-        <Grid Name="gridI10" Grid.Row="8" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellI10" />
-        </Grid>
-        <Grid Name="gridJ1" Grid.Row="9" Grid.Column="0" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ1" />
-        </Grid>
-        <Grid Name="gridJ2" Grid.Row="9" Grid.Column="1" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ2" />
-        </Grid>
-        <Grid Name="gridJ3" Grid.Row="9" Grid.Column="2" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ3" />
-        </Grid>
-        <Grid Name="gridJ4" Grid.Row="9" Grid.Column="3" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ4" />
-        </Grid>
-        <Grid Name="gridJ5" Grid.Row="9" Grid.Column="4" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ5" />
-        </Grid>
-        <Grid Name="gridJ6" Grid.Row="9" Grid.Column="5" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ6" />
-        </Grid>
-        <Grid Name="gridJ7" Grid.Row="9" Grid.Column="6" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ7" />
-        </Grid>
-        <Grid Name="gridJ8" Grid.Row="9" Grid.Column="7" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ8" />
-        </Grid>
-        <Grid Name="gridJ9" Grid.Row="9" Grid.Column="8" MouseDown="gridMouseDown"
-    
-    Background="#0094d9">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ9" />
-        </Grid>
-        <Grid Name="gridJ10" Grid.Row="9" Grid.Column="9" MouseDown="gridMouseDown"
-    
-    Background="#00436b">
-            <Rectangle MouseDown="gridMouseDown"/>
-            <Path Name="cellJ10" />
-        </Grid>
         <Canvas x:Name="canvas" Height="81" Margin="-44,34.6,-35.8,-86" VerticalAlignment="Top" Grid.ColumnSpan="10" Grid.Row="9">
             <Polygon Points="0,-5 15,5, 0,15" Stroke="Black" Fill="Black" Name ="rightPoly" Canvas.Left="358" Canvas.Top="42" MouseDown="orientationMouseDown"/>
             <Polygon Points="0,-5 15,5, 0,15" Stroke="Black" Fill="Black" Name ="leftPoly" Canvas.Left="310" Canvas.Top="37" RenderTransformOrigin="0.5,0.5" MouseDown="orientationMouseDown">

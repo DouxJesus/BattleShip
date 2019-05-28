@@ -22,12 +22,18 @@ namespace BattleShip2019
     {
         Grid Window = new Grid();
 
+        enum GameType{ BOT, OneVersusOne, OneVSOneBlind }
+
+        GameType gameType;
+
         PlacingShips playerOneplacingShips;
         PlacingShips playerTwoplacingShips;
 
         PlayerWait PlayerOneWait;
         PlayerWait PlayerTwoWait;
         PlayGame playGame;
+
+        int currentTurn;
 
         public MainWindow()
         {
@@ -48,8 +54,10 @@ namespace BattleShip2019
             this.MinHeight = 500;
             this.Width = 953.286;
             this.Height = 600;
+
+            currentTurn = 1;
             PlayerOneWait = new PlayerWait("Player 1", 1);
-            //PlayerTwoWait = new PlayerWait("Player 2", 2);
+            PlayerTwoWait = new PlayerWait("Player 2", 2);
             Window.Children.Add(PlayerOneWait);
             PlayerOneWait.PlayerReady += new EventHandler(ShipInitialize);
             
@@ -58,9 +66,36 @@ namespace BattleShip2019
         private void ShipInitialize(object sender, EventArgs e)
         {
             Window.Children.Clear();
-            playerOneplacingShips = new PlacingShips();
-            Window.Children.Add(playerOneplacingShips);
-            playerOneplacingShips.Play += new EventHandler(PlayStart);
+            if (currentTurn == 1)
+            {
+                playerOneplacingShips = new PlacingShips();
+                Window.Children.Add(playerOneplacingShips);
+                if (gameType == GameType.BOT)
+                   playerOneplacingShips.Play += new EventHandler(PlayStart);
+                else
+                {
+                    currentTurn = 2;
+                    playerOneplacingShips.Play += new EventHandler(Wait);
+                }
+            }
+            else
+            {
+                playerTwoplacingShips = new PlacingShips();
+                Window.Children.Add(playerTwoplacingShips);   
+                playerTwoplacingShips.Play += new EventHandler(PlayStart);
+            }
+           
+        }
+
+        private void Wait(object sender, EventArgs e)
+        {
+            Window.Children.Clear();
+            if (sender.GetType() == playerOneplacingShips.GetType())
+            {
+                Window.Children.Add(PlayerTwoWait);
+                PlayerTwoWait.PlayerReady += new EventHandler(ShipInitialize);
+            }
+            
         }
 
         private void PlayStart(object sender, EventArgs e)

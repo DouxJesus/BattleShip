@@ -33,11 +33,6 @@ namespace BattleShip2019
         private int id;
         private int shipCount;
 
-        //Universal Color Code
-        SolidColorBrush colorOnSelect =  new SolidColorBrush(Colors.Coral);
-        SolidColorBrush colorNotSelected = new SolidColorBrush(Colors.Black);
-        SolidColorBrush colorPlacedShip = new SolidColorBrush(Colors.LawnGreen);
-
         public PlacingShips()
         {
             InitializeComponent();
@@ -64,6 +59,7 @@ namespace BattleShip2019
             foreach (Grid elmt in MyGrid)
             {
                 ResetGridElmt(elmt);
+                
             }
 
             Path[] MyPathsShips = new Path[] { submarine1, submarine2, destroyer1, destroyer2, cruiser1, battleship, carrier };
@@ -134,14 +130,10 @@ namespace BattleShip2019
                     myShip = new Cruiser(id);
                     break;
                 case "destroyer1":
-                    myShip = new Destroyer(id);
-                    break;
                 case "destroyer2":
                     myShip = new Destroyer(id);
                     break;
                 case "submarine1":
-                    myShip = new Submarine(id);
-                    break;
                 case "submarine2":
                     myShip = new Submarine(id);
                     break;
@@ -152,10 +144,10 @@ namespace BattleShip2019
         private void orientationMouseDown(object sender, MouseButtonEventArgs e)
         {
             Polygon arrow = (Polygon)sender;
-
-            selectedArrow.Stroke = colorNotSelected;
+        
+            selectedArrow.Stroke = new SolidColorBrush(Colors.Black);
             selectedArrow = arrow;
-            arrow.Stroke = colorOnSelect;
+            arrow.Stroke = new SolidColorBrush(Colors.Coral);
             horizontalOrientation = arrow.Name.Equals("rightPoly") || arrow.Name.Equals("leftPoly");
         }
 
