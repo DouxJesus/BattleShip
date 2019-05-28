@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace BattleShip2019
 {
     public class Ship
     {
-        private bool alive;
-        private int size;
-        private int pv;
-        private int id;
-        private int x;
-        private int y;
-        private bool vertical;
+        /*protected*/ bool alive;
+        /*protected*/ int size;
+        /*protected*/ int pv;
+        /*protected*/ int id;
+        /*protected*/ int index;
+        /*protected*/ int x;
+        /*protected*/ int y;
+        /*protected*/ bool horizontalOrientation;
+        /*protected*/ SolidColorBrush shipColor;
 
 
-        public Ship(int size, int id)
+        protected Ship(int size, int id)
         {
             alive = true;
             this.size = size;
@@ -25,6 +29,9 @@ namespace BattleShip2019
             this.id = id;
             this.x = -1;
             this.y = -1;
+            this.index = -1;
+            horizontalOrientation = true;
+            shipColor = new SolidColorBrush(Colors.Gray);
         }
 
         public bool Shot()
@@ -35,13 +42,12 @@ namespace BattleShip2019
             return alive;
         }
 
-        public bool SetCoordinates(int x, int y, bool vertical)
+        public bool SetCoordinates(int index, bool vertical)
         {
             if (this.x != -1 && this.y != -1)
             {
-                this.x = x;
-                this.y = y;
-                this.vertical = vertical;
+                this.index = index;
+                this.horizontalOrientation = vertical;
                 return true;
             }
             else
@@ -53,12 +59,13 @@ namespace BattleShip2019
             return "";
         }
 
-        public int Id { get => Id; }
-        public int Size { get => Size; }
+        public int Id { get => id; }
+        public int Size { get => size; }
         public int Pv { get => pv; }
         public int X { get => x; }
         public int Y { get => y; }
-        public bool Vertical { get => vertical; }
+        public bool Horizontal { get => horizontalOrientation; }
+        public SolidColorBrush ShipColor { get => shipColor;/* set => shipColor = value; */}
     }
 
    public class Cruiser : Ship

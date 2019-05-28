@@ -71,7 +71,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="placingShips.xaml">
+    <Page Include="PlacingShips.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -87,8 +87,8 @@
     <Compile Include="Network\ProgramClient.cs" />
     <Compile Include="Network\ProgramServer.cs" />
     <Compile Include="Network\Server.cs" />
-    <Compile Include="placingShips.xaml.cs">
-      <DependentUpon>placingShips.xaml</DependentUpon>
+    <Compile Include="PlacingShips.xaml.cs">
+      <DependentUpon>PlacingShips.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlayGame.xaml.cs">
       <DependentUpon>PlayGame.xaml</DependentUpon>

@@ -20,22 +20,27 @@ namespace BattleShip2019
     /// </summary>
     public partial class MainWindow : Window
     {
+        Grid Window = new Grid();
+
+        PlacingShips placingShips;
         public MainWindow()
         {
-            Game game = new Game();
-           
+            
             InitializeComponent();
-            game.CreateBoardGame();
-            game.Turn();
-        }
+            Content = Window;
 
-        private void OnButtonClick(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button) sender;
-            string name = btn.Name;
-            int x = name[3] - '0';
-            int y = name[4] - 'A';
+            placingShips = new PlacingShips();
+            Window.Children.Add(placingShips);
 
         }
+
+        //private void OnButtonClick(object sender, RoutedEventArgs e)
+        //{
+        //    Button btn = (Button) sender;
+        //    string name = btn.Name;
+        //    int x = name[3] - '0';
+        //    int y = name[4] - 'A';
+
+        //}
     }
 }
