@@ -20,7 +20,8 @@ namespace BattleShip2019
     /// TODO :
     /// 1. Main Menu
     /// 2. Player class 
-    /// 
+    ///  BOT -> player with bool
+    ///  bot func -> in player
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -56,6 +57,9 @@ namespace BattleShip2019
             //Ask players names
             //initialize waitframes
 
+            string name1 = "Default1";
+            string name2 = "Default2";
+
             this.MinWidth = 500;
             this.MinHeight = 500;
             this.Width = 953.286;
@@ -63,20 +67,19 @@ namespace BattleShip2019
 
 
             currentPlayer = 1;
-
-            //Change default name to real names
-            player1 = new Player("Marine", 1);
-            player2 = new Player("Mathieu", 2);
-
-            this.player1.InitPlayerWait();
-            this.player2.InitPlayerWait();
-
-            //Display Player One Wait
+            if (gameType == GameType.BOT)
+            {
+                player1 = new Player(name1, 1);
+                player2 = new Player("Edward The Bot", 2);
+                this.player1.InitPlayerWait();
+            } else
+            {
+                player1 = new Player(name1, 1);
+                player2 = new Player(name2, 2);
+                this.player2.InitPlayerWait();
+            }
             Window.Children.Add(player1.playerWait);
-
-            //Initialize event listen on playeronewait window for event Playerready
             player1.playerWait.PlayerReady += new EventHandler(ShipInitialize);
-            
         }
 
         private void ShipInitialize(object sender, EventArgs e)
@@ -132,7 +135,6 @@ namespace BattleShip2019
                 Window.Children.Add(player1.playerWait);
                 player1.playerWait.PlayerReady += new EventHandler(Turn);
             }
-
         }
 
         private void PlayStart(object sender, EventArgs e)
