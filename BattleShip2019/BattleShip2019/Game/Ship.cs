@@ -14,6 +14,7 @@ namespace BattleShip2019
         protected int size;
         protected int pv;
         protected int id;
+        //Top left corner of ship
         protected int index;
         protected string name;
         protected bool horizontalOrientation;
@@ -51,6 +52,8 @@ namespace BattleShip2019
             else
                 return false;
         }
+
+
 
         public string Name { get => name; }
 

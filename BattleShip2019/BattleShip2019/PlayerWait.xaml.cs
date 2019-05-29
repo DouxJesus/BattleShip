@@ -37,7 +37,10 @@ namespace BattleShip2019
 
         public void btn_Ready(object sender, EventArgs e)
         {
+            //Invoke event Playerready
             PlayerReady(this, e);
+            //To fix bug of multiple unwanted turn
+            //Fix :send only one event
             PlayerReady = null;
         }
     }

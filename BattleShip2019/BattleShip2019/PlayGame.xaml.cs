@@ -74,6 +74,11 @@ namespace BattleShip2019
             }
         }
 
+        private void IsGameOver()
+        {
+            throw new NotImplementedException();
+        }
+
         private void DrawShips(Ship[] ships, bool opponent)
         {
             foreach(Ship ship in ships)
