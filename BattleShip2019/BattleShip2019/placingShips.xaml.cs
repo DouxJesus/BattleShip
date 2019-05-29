@@ -401,6 +401,8 @@ namespace BattleShip2019
             {
                 return;
             }
+
+           // Play(this, e);
             Play(this, e);
         }
 
