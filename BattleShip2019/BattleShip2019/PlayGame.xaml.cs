@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,20 +30,31 @@ namespace BattleShip2019
         Ship[] oppShips;
 
         int deadShips;
-        
+
+        string playername;
+
+        //Communication Variables
+        public string UpdateData;
+        public int LastIndexShoot;
+
+        //Image imgWater;
+        //Image imgFire;
+
         Grid selectedGrid;
 
         public PlayGame(string playername, Ship[] ships, Ship[] oppShips)
         {
             InitializeComponent();
-            InitializeGrid();
-            LabelPlayer.Content = playername.ToUpper();
+            this.playername = playername.ToUpper();
+            UpdateData = "";
+            LabelPlayer.Content = this.playername;
             this.oppShips = oppShips;
             deadShips = 0;
+            LastIndexShoot = -1;
+
+            InitializeGrid();
             DrawShips(ships, false);
             DrawShips(oppShips, true);
-
-            
         }
 
         private void InitializeGrid()
@@ -178,7 +190,6 @@ namespace BattleShip2019
                 {
                     selectedGrid.IsEnabled = true;
                     selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0094d9"));
-
                 }
                 selectedGrid = grid;
                 selectedGrid.Background = new SolidColorBrush(Colors.Coral);
@@ -186,29 +197,61 @@ namespace BattleShip2019
             
         }
 
+        public void GameUpdate()
+        {
+            Notifications.Text += UpdateData;
+
+            if(LastIndexShoot > 0 && LastIndexShoot < 100)
+            {
+                if (MyGrid[LastIndexShoot].Tag.Equals("water"))
+                {
+                    MyGrid[LastIndexShoot].Background = null;
+                    Uri fileUri = new Uri("/Content/img_water.jpg", UriKind.Relative);
+                    Image imgWater = new Image();
+                    imgWater.Source = new BitmapImage(fileUri);
+
+                    MyGrid[LastIndexShoot].Children.Add(imgWater);
+                }
+                else
+                {
+                    MyGrid[LastIndexShoot].Background = null;
+                    Uri fileUri = new Uri("/Content/img_fire.jpg", UriKind.Relative);
+                    Image imgFire = new Image();
+                    imgFire.Source = new BitmapImage(fileUri);
+                    MyGrid[LastIndexShoot].Children.Add(imgFire);
+                }
+            }       
+        }
+
         private void Shot()
         {
+            int index = Array.IndexOf(OppGrid, selectedGrid);
+            LastIndexShoot = index;
+            UpdateData = playername + " SHOOT " + (char)('A' + index / 10) + index % 10 + "\n";
             if (selectedGrid.Tag.Equals("water"))
             {
                 selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2513C3"));
                 selectedGrid.IsEnabled = false;
-                MessageBox.Show("Flop! It's water", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                UpdateData += playername + ": Flop it's water! \n";
+                //MessageBox.Show("Flop! It's water", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
                 selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#13C35A"));
                 selectedGrid.IsEnabled = false;
                 int id = Int32.Parse(selectedGrid.Tag.ToString());
-                if(!oppShips[id].Shot())
+                ProgressBar.Value += 1;
+                if (!oppShips[id].Shot())
                 {
                     //The boat is dead
                     DrawShip(oppShips[id], OppGrid, false);
                     deadShips += 1;
-                    MessageBox.Show("Touch and Sink!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ProgressBar.Value += 1;
+                    UpdateData += playername + ": Touch and Sink! \n";
                 }
                 else
                 {
-                    MessageBox.Show("Touch", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                   UpdateData += playername + ": Touch! \n";
                 }
                 
             }

@@ -137,9 +137,12 @@ namespace BattleShip2019
 
         private void PlayStart(object sender, EventArgs e)
         {
+            if(this.Width != SystemParameters.PrimaryScreenWidth)
+                this.Width = 1100;
+            if(this.Height != SystemParameters.PrimaryScreenHeight)
+                this.Height = 600;
             Window.Children.Clear();
             currentPlayer = 1;
-            //playGamePlayerOne = new PlayGame("player1",playerOneplacingShips.MyShips, playerTwoplacingShips.MyShips);
             player1.InitGame(player2.myships);
             player2.InitGame(player1.myships);
 
@@ -158,12 +161,18 @@ namespace BattleShip2019
             }
             else if (currentPlayer == 1)
             {
+                player1.playGame.UpdateData += player2.playGame.UpdateData;
+                player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
+                player1.playGame.GameUpdate();
                 Window.Children.Add(player1.playGame);
                 player1.playGame.Next += null;
                 player1.playGame.Next += new EventHandler(WaitTurn);
             }
             else
             {
+                player2.playGame.UpdateData += player1.playGame.UpdateData;
+                player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
+                player2.playGame.GameUpdate();
                 Window.Children.Add(player2.playGame);
                 player2.playGame.Next += null;
                 player2.playGame.Next += new EventHandler(WaitTurn);
