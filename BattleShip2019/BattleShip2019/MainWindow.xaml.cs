@@ -84,6 +84,7 @@ namespace BattleShip2019
                 playerTwoplacingShips = new PlacingShips();
                 Window.Children.Add(playerTwoplacingShips);
                 currentTurn = 1;
+                //if(gameType == GameType.OneVersusOne)
                 playerTwoplacingShips.Play += new EventHandler(PlayStart);
             }
            
@@ -125,7 +126,6 @@ namespace BattleShip2019
             currentTurn = 1;
             Window.Children.Add(PlayerOneWait);
             PlayerOneWait.PlayerReady += new EventHandler(Turn);
-
         }
 
         private void Turn(object sender, EventArgs e)

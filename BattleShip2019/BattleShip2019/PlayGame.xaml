@@ -1589,7 +1589,7 @@ Background="#00436b">
 
         </Grid>
 
-        <Button x:Name="btnSubmit" Content="SUBMIT" HorizontalAlignment="Left" Height="32" Margin="795,394,0,-10" VerticalAlignment="Top" Width="90" Click="btn_Submit" Background="#FF5284C0" BorderBrush="#FFC1C0E8" FontWeight="Bold" Foreground="White" FontSize="14.667"/>
+        <!--<Button x:Name="btnSubmit" Content="SUBMIT" HorizontalAlignment="Left" Height="32" Margin="795,394,0,-10" VerticalAlignment="Top" Width="90" Click="btn_Submit" Background="#FF5284C0" BorderBrush="#FFC1C0E8" FontWeight="Bold" Foreground="White" FontSize="14.667"/>-->
         <Label  x:Name="LabelPlayer"  Content="PLAYER" FontSize="40" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Left" Margin="51,-14,0,0" VerticalAlignment="Top" Height="69" Width="291"/>
         <Label  x:Name="LabelOpp"  Content="OPPONENT" FontSize="40" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Left" Margin="511,-14,0,0" VerticalAlignment="Top" Height="69" Width="291"/>
     </Grid>
