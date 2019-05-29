@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,15 +27,32 @@ namespace BattleShip2019
         Grid[] MyGrid;
         Grid[] OppGrid;
 
+        Ship[] oppShips;
+
         int deadShips;
+
+        string playername;
+
+        //Communication Variables
+        public string UpdateData;
+        public int LastIndexShoot;
+
+        //Image imgWater;
+        //Image imgFire;
 
         Grid selectedGrid;
 
         public PlayGame(string playername, Ship[] ships, Ship[] oppShips)
         {
             InitializeComponent();
+            this.playername = playername.ToUpper();
+            UpdateData = "";
+            LabelPlayer.Content = this.playername;
+            this.oppShips = oppShips;
+            deadShips = 0;
+            LastIndexShoot = -1;
+
             InitializeGrid();
-            LabelPlayer.Content = playername.ToUpper();
             DrawShips(ships, false);
             DrawShips(oppShips, true);
         }
@@ -83,11 +101,14 @@ namespace BattleShip2019
         {
             foreach(Ship ship in ships)
             {
-                DrawShip(ship, opponent);
+                if(opponent)
+                    DrawShip(ship, OppGrid, true);
+                else
+                    DrawShip(ship, MyGrid, false);
             }
         }
 
-        private void DrawShip(Ship ship, bool opponent)
+        private void DrawShip(Ship ship, Grid[] grid, bool hiddenShip)
         {
             int index = ship.Index;
             bool horizontalOrientation = ship.Horizontal;
@@ -99,14 +120,14 @@ namespace BattleShip2019
                 {
                     if (index + i <= (X + 1) * 10)
                     {
-                        if (!opponent)
+                        if (!hiddenShip)
                         {
-                            MyGrid[index + i].Tag = ship.Id;
-                            MyGrid[index + i].Background = ship.ShipColor;
+                            grid[index + i].Tag = ship.Id;
+                            grid[index + i].Background = ship.ShipColor;
                         }
                         else
                         {
-                            OppGrid[index + i].Tag = ship.Id;
+                            grid[index + i].Tag = ship.Id;
                         }
                     }
                     else
@@ -122,7 +143,7 @@ namespace BattleShip2019
                 {
                     if (index + i <= 99)
                     {
-                        if (!opponent)
+                        if (!hiddenShip)
                         {
                             MyGrid[index + i].Tag = ship.Id;
                             MyGrid[index + i].Background = ship.ShipColor;
@@ -153,6 +174,13 @@ namespace BattleShip2019
         {
             Grid grid = (Grid)sender;
 
+            if(grid == selectedGrid)
+            {
+                Shot();
+                selectedGrid = null;
+                Next(this, e);
+                Next = null;
+            }
             if(grid.IsEnabled)
             {
                 int index = Array.IndexOf(OppGrid, grid);
@@ -162,34 +190,70 @@ namespace BattleShip2019
                 {
                     selectedGrid.IsEnabled = true;
                     selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0094d9"));
-
                 }
                 selectedGrid = grid;
-                selectedGrid.IsEnabled = false;
                 selectedGrid.Background = new SolidColorBrush(Colors.Coral);
-                //MessageBox.Show("Col:" + col + " row:" + row, "You clicked", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            
         }
 
-        private void btn_Submit(object sender, EventArgs e)
+        public void GameUpdate()
         {
-            if (selectedGrid != null)
+            Notifications.Text += UpdateData;
+
+            if(LastIndexShoot > 0 && LastIndexShoot < 100)
             {
-                if (selectedGrid.Tag.Equals("water"))
+                if (MyGrid[LastIndexShoot].Tag.Equals("water"))
                 {
-                    selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2513C3"));
-                    selectedGrid.IsEnabled = false;
-                    MessageBox.Show("Flop! It's water", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MyGrid[LastIndexShoot].Background = null;
+                    Uri fileUri = new Uri("/Content/img_water.jpg", UriKind.Relative);
+                    Image imgWater = new Image();
+                    imgWater.Source = new BitmapImage(fileUri);
+
+                    MyGrid[LastIndexShoot].Children.Add(imgWater);
                 }
                 else
                 {
-                    selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#13C35A"));
-                    selectedGrid.IsEnabled = false;
-                    MessageBox.Show("Touch", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MyGrid[LastIndexShoot].Background = null;
+                    Uri fileUri = new Uri("/Content/img_fire.jpg", UriKind.Relative);
+                    Image imgFire = new Image();
+                    imgFire.Source = new BitmapImage(fileUri);
+                    MyGrid[LastIndexShoot].Children.Add(imgFire);
                 }
-                selectedGrid = null;
-                Next(this, e);
-                Next = null;
+            }       
+        }
+
+        private void Shot()
+        {
+            int index = Array.IndexOf(OppGrid, selectedGrid);
+            LastIndexShoot = index;
+            UpdateData = playername + " SHOOT " + (char)('A' + index / 10) + index % 10 + "\n";
+            if (selectedGrid.Tag.Equals("water"))
+            {
+                selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2513C3"));
+                selectedGrid.IsEnabled = false;
+                UpdateData += playername + ": Flop it's water! \n";
+                //MessageBox.Show("Flop! It's water", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#13C35A"));
+                selectedGrid.IsEnabled = false;
+                int id = Int32.Parse(selectedGrid.Tag.ToString());
+                ProgressBar.Value += 1;
+                if (!oppShips[id].Shot())
+                {
+                    //The boat is dead
+                    DrawShip(oppShips[id], OppGrid, false);
+                    deadShips += 1;
+                    ProgressBar.Value += 1;
+                    UpdateData += playername + ": Touch and Sink! \n";
+                }
+                else
+                {
+                   UpdateData += playername + ": Touch! \n";
+                }
+                
             }
         }
 
