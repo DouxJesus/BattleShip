@@ -416,7 +416,7 @@ namespace BattleShip2019
             ResetGrid();
         }
 
-        private void btn_RandomClick(object sender, RoutedEventArgs e)
+        public void btn_RandomClick(object sender, RoutedEventArgs e)
         {
             ResetGrid();
             MyShips = new Ship[7] { new Submarine(0), new Submarine(1), new Destroyer(2), new Destroyer(3), new Cruiser(4), new Battleship(5), new Carrier(6) };

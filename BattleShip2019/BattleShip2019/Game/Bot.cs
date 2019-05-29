@@ -1,85 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace BattleShip2019.Game
-{
-    
-
-    class Bot
-    {
-        public readonly string _name;
-        public readonly int _playerTurn;
-        public Ship[] myships;
-
-        public int[] grid;
-
-        public Bot(string name, int playerTurn)
-        {   
-            this._playerTurn = playerTurn;
-            
-        }
-
-         public void InitShips()
-        {
+//namespace BattleShip2019.Game
+//{
 
 
-        }
+//    class Bot : Player
+//    {
+//        public readonly string _name;
+//        public readonly int _playerTurn;
+//        //private static readonly int name;
+//        //public Ship[] myships;
+//        //public Ship[] oppShips;
+//        //public int[] grid;
+//        //public int[] oppGrid;
 
-        private void initGrid()
-        {
-            this.grid = new int[100];
-        }
+//        bool TouchedABoat;
+//        int lastAttack;
+//        int nextOrientation;
+//        int hitCount;
 
-        private bool checkAvailablePlacement(int index, bool orientation, int length)
-        {
-            int index2 = index;
-            bool isOk = true;
-            int i = 0;
-            int nextJ = orientation ? 1 : 10;
-            //CHECK IF NOT ON EDGES
-            isOk = orientation ? (((index + length * nextJ) % 10) > index) :((index + length * nextJ) < 100);
+//        public static object playerTurn { get; }
 
-            //CHECK IF ON OTHER SHIP
-            while (isOk && i < myships.Length && myships[i].Index == -1)
-            {
-                int j = 0;
-                while(isOk && j < length)
-                {
+//        public Bot(string name, int playerTurn) : base(name,playerTurn)
+//        {
+//            this.TouchedABoat = false;
+//            this.lastAttack = -1;
+//            this.nextOrientation = 1;
+//            this.hitCount = 0;
 
-                    if(grid[index2] != -1)
-                    {
-                        isOk = false;
-                    }
-                    j++;
-                    index2 += nextJ;
-                }
-                i++;
-            }
+//        }
+//        //this.playGame.OppGrid[index].Tag.Equals("water")
+//        public int Attack()
+//        {
+//            int index = -1;
+//            this.TouchedABoat = (lastAttack != 1 && this.playGame.OppGrid[lastAttack].IsEnabled);
+//            if (TouchedABoat)       //Bot touched a bot, target next smart move
+//            {
 
-            return isOk;
-        }
+//            }
+//            else                    //Else target random
+//            {
+//                Random random = new Random();
+//                index = random.Next(0, 100);
+//                while (!this.playGame.OppGrid[index].IsEnabled)
+//                {
+//                    index = random.Next(0, 100);
+//                }
 
-        public void RandomShip()
-        {
+//            }
+//            this.playGame.selectedGrid = this.playGame.OppGrid[index];
+//            this.playGame.Shot();
+//            this.lastAttack = index;
+//            //To talk to playgame
+//            this.playGame.LastIndexShoot = index;
+//             return 0;
 
-            Ship[] myships = new Ship[7] { new Submarine(0), new Submarine(1), new Destroyer(2), new Destroyer(3), new Cruiser(4), new Battleship(5), new Carrier(6) };
-            Random random = new Random();
-
-            foreach(Ship s in myships)
-            {
-                int index = random.Next(0, 100);
-                bool horizontalOrientation = random.Next(0, 2) == 1 ? true : false;
-                while (!checkAvailablePlacement(index,horizontalOrientation, s.Size))
-                {
-                    index = random.Next(0, 100);
-                }
-                s.SetCoordinates(index, horizontalOrientation);
-                int id = s.Id;
-
-            }
-        }
-    }
-}
+//        }
+//    }
+//}

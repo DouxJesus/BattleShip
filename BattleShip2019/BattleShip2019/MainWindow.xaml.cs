@@ -51,7 +51,7 @@ namespace BattleShip2019
             this.Height = 500;
 
             //Change this according to menu
-            gameType = GameType.OneVersusOne;
+            gameType = GameType.BOT;
 
             //Menu
             //Ask players names
@@ -77,6 +77,7 @@ namespace BattleShip2019
                 player1 = new Player(name1, 1);
                 player2 = new Player(name2, 2);
                 this.player2.InitPlayerWait();
+                this.player1.InitPlayerWait();
             }
             Window.Children.Add(player1.playerWait);
             player1.playerWait.PlayerReady += new EventHandler(ShipInitialize);
@@ -92,7 +93,12 @@ namespace BattleShip2019
                 player1.InitPlacingShip();
                 Window.Children.Add(player1.placingShips);
                 if (gameType == GameType.BOT)
+                {
+                    player2.InitPlacingShip();
+                    player2.placingShips.btnRandomize.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                    player2.placingShips.btnSubmit.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                     player1.placingShips.Play += new EventHandler(PlayStart);
+                }
                 else
                 {
                     currentPlayer = 2;
@@ -143,7 +149,9 @@ namespace BattleShip2019
             if(this.Height != SystemParameters.PrimaryScreenHeight)
                 this.Height = 600;
             Window.Children.Clear();
+
             currentPlayer = 1;
+
             player1.InitGame(player2.myships);
             player2.InitGame(player1.myships);
 
@@ -155,29 +163,52 @@ namespace BattleShip2019
         {
             //EventHandle GAMEOVER
 
-            Window.Children.Clear();
-            if (this.IsOver)
-            {
-                //GAME FINISH
-            }
-            else if (currentPlayer == 1)
-            {
-                player1.playGame.UpdateData += player2.playGame.UpdateData;
-                player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
-                player1.playGame.GameUpdate();
-                Window.Children.Add(player1.playGame);
-                player1.playGame.Next += null;
-                player1.playGame.Next += new EventHandler(WaitTurn);
-            }
-            else
-            {
-                player2.playGame.UpdateData += player1.playGame.UpdateData;
-                player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
-                player2.playGame.GameUpdate();
-                Window.Children.Add(player2.playGame);
-                player2.playGame.Next += null;
-                player2.playGame.Next += new EventHandler(WaitTurn);
-            }
+
+                Window.Children.Clear();
+                if (this.IsOver)
+                {
+                    //GAME FINISH
+                }
+                else if (currentPlayer == 1)
+                {
+                    
+                    player1.playGame.UpdateData += player2.playGame.UpdateData;
+                    player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
+                    player1.playGame.GameUpdate();
+                    Window.Children.Add(player1.playGame);
+                    player1.playGame.Next += null;
+                currentPlayer = 2;
+                    if (gameType == GameType.BOT)
+                    {
+                        player1.playGame.Next += new EventHandler(Turn);
+                    }
+                    else
+                        player1.playGame.Next += new EventHandler(WaitTurn);
+                }
+                else
+                {
+                    if(gameType == GameType.BOT)
+                    {
+                        player2.playGame.UpdateData += player1.playGame.UpdateData;
+                        player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
+                        player2.playGame.GameUpdate();
+                        player2.playGame.Attack();
+                        currentPlayer = 1;
+                        player2.playGame.Next += null;
+                        player2.playGame.Next += new EventHandler(Turn);
+                    }
+                    else
+                    {
+                        player2.playGame.UpdateData += player1.playGame.UpdateData;
+                        player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
+                        player2.playGame.GameUpdate();
+                        Window.Children.Add(player2.playGame);
+                        player2.playGame.Next += null;
+                        player2.playGame.Next += new EventHandler(WaitTurn);
+                    }
+                    
+                }
+
             
         }
 

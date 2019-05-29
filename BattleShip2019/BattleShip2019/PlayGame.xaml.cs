@@ -24,10 +24,10 @@ namespace BattleShip2019
 
         public event EventHandler Next;
 
-        Grid[] MyGrid;
-        Grid[] OppGrid;
+        public Grid[] MyGrid;
+        public Grid[] OppGrid;
 
-        Ship[] oppShips;
+        public Ship[] oppShips;
 
         int deadShips;
 
@@ -40,7 +40,13 @@ namespace BattleShip2019
         //Image imgWater;
         //Image imgFire;
 
-        Grid selectedGrid;
+        public Grid selectedGrid;
+
+        bool TouchedABoat;
+        int lastAttack;
+        int nextOrientation;
+        int hitCount;
+
 
         public PlayGame(string playername, Ship[] ships, Ship[] oppShips)
         {
@@ -51,6 +57,12 @@ namespace BattleShip2019
             this.oppShips = oppShips;
             deadShips = 0;
             LastIndexShoot = -1;
+
+            //for bot
+            this.TouchedABoat = false;
+            this.lastAttack = -1;
+            this.nextOrientation = 1;
+            this.hitCount = 0;
 
             InitializeGrid();
             DrawShips(ships, false);
@@ -174,6 +186,7 @@ namespace BattleShip2019
         {
             Grid grid = (Grid)sender;
 
+            //Double click
             if(grid == selectedGrid)
             {
                 Shot();
@@ -196,6 +209,35 @@ namespace BattleShip2019
             }
             
         }
+
+        public void Attack()
+        {
+            int index = -1;
+            this.TouchedABoat = (lastAttack != -1 && OppGrid[lastAttack].IsEnabled);
+            if (TouchedABoat)       //Bot touched a bot, target next smart move
+            {
+
+            }
+            else                    //Else target random
+            {
+                Random random = new Random();
+                index = random.Next(0, 100);
+                while (!OppGrid[index].IsEnabled)
+                {
+                    index = random.Next(0, 100);
+                }
+
+            }
+            this.selectedGrid = OppGrid[index];
+            Shot();
+            this.lastAttack = index;
+            //To talk to playgame
+            LastIndexShoot = index;
+
+            Next(this, new EventArgs());
+            Next = null;
+        
+    }
 
         public void GameUpdate()
         {
@@ -220,10 +262,18 @@ namespace BattleShip2019
                     imgFire.Source = new BitmapImage(fileUri);
                     MyGrid[LastIndexShoot].Children.Add(imgFire);
                 }
-            }       
+            }
+
+            InvokeEvent.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
-        private void Shot()
+        public void btn_Invoke(object sender, EventArgs e)
+        {
+            Next(this, e);
+            Next = null;
+        }
+
+        public void Shot()
         {
             int index = Array.IndexOf(OppGrid, selectedGrid);
             LastIndexShoot = index;
@@ -241,6 +291,7 @@ namespace BattleShip2019
                 selectedGrid.IsEnabled = false;
                 int id = Int32.Parse(selectedGrid.Tag.ToString());
                 ProgressBar.Value += 1;
+                //Shoot ship class
                 if (!oppShips[id].Shot())
                 {
                     //The boat is dead
