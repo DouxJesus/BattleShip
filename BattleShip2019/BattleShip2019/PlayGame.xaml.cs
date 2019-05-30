@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -48,6 +49,12 @@ namespace BattleShip2019
         int nextOrientation;
         int hitCount;
 
+
+        public void resetNext()
+        {
+            Next = null;
+            //Next = new eve
+        }
 
         public PlayGame(string playername, Ship[] ships, Ship[] oppShips)
         {
@@ -192,8 +199,9 @@ namespace BattleShip2019
             {
                 Shot();
                 selectedGrid = null;
-                Next(this, e);
-                Next = null;
+                if(Next != null)
+                    Next(this, e);
+                
             }
             else if(grid.IsEnabled)
             {
@@ -215,7 +223,7 @@ namespace BattleShip2019
         {
             int index = -1;
             this.TouchedABoat = (lastAttack != -1 && OppGrid[lastAttack].IsEnabled);
-            if (TouchedABoat)       //Bot touched a bot, target next smart move
+            if (TouchedABoat)       //Bot touched a boat, target next smart move
             {
 
             }
@@ -235,7 +243,7 @@ namespace BattleShip2019
             //To talk to playgame
             LastIndexShoot = index;
 
-            InvokeEvent.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            //InvokeEvent.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         public void GameUpdate()
@@ -267,7 +275,7 @@ namespace BattleShip2019
         public void btn_Invoke(object sender, EventArgs e)
         {
             Next(this, e);
-            Next = null;
+            //Next = null;
         }
 
         public void Shot()

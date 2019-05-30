@@ -28,7 +28,7 @@ namespace BattleShip2019
         Grid Window = new Grid();
 
         //Define game type
-        enum GameType{ BOT, OneVersusOne, OneVSOneBlind }
+        enum GameType{ BOT, OneVersusOne }
 
         GameType gameType;
 
@@ -128,17 +128,20 @@ namespace BattleShip2019
         private void WaitTurn(object sender, EventArgs e)
         {
             Window.Children.Clear();
-            currentPlayer = currentPlayer == 1 ? 2 : 1;
-            if (currentPlayer == 2)
-            {
-                Window.Children.Add(player2.playerWait);
-                player2.playerWait.PlayerReady += new EventHandler(Turn);
-            }
-            else
-            {
-                Window.Children.Add(player1.playerWait);
-                player1.playerWait.PlayerReady += new EventHandler(Turn);
-            }
+
+                currentPlayer = currentPlayer == 1 ? 2 : 1;
+                if (currentPlayer == 2)
+                {
+                    Window.Children.Add(player2.playerWait);
+                    player2.playerWait.PlayerReady += new EventHandler(Turn);
+                }
+                else
+                {
+                    Window.Children.Add(player1.playerWait);
+                    player1.playerWait.PlayerReady += new EventHandler(Turn);
+                }
+            
+            
         }
 
         private void PlayStart(object sender, EventArgs e)
@@ -154,16 +157,16 @@ namespace BattleShip2019
             player1.InitGame(player2.myships);
             player2.InitGame(player1.myships);
 
+
             Window.Children.Add(player1.playerWait);
-            player1.playerWait.PlayerReady += new EventHandler(Turn);
-            player2.playGame.Next += new EventHandler(Turn);
+            if(gameType == GameType.BOT)
+                player1.playerWait.PlayerReady += new EventHandler(BotTurn);
+            else
+                player1.playerWait.PlayerReady += new EventHandler(Turn);
         }
 
         private void Turn(object sender, EventArgs e)
         {
-            //EventHandle GAMEOVER
-
-
             Window.Children.Clear();
             if (player1.playGame.deadShips == 7 || player2.playGame.deadShips == 7)
             {
@@ -171,43 +174,54 @@ namespace BattleShip2019
             }
             else if (currentPlayer == 1)
             {
-
                 player1.playGame.UpdateData += player2.playGame.UpdateData;
                 player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
                 player1.playGame.GameUpdate();
                 Window.Children.Add(player1.playGame);
-                currentPlayer = 2;
                 if (gameType == GameType.BOT)
                 {
-                    player1.playGame.Next += new EventHandler(Turn);
+                    currentPlayer = 2;
+                
                 }
                 else
                     player1.playGame.Next += new EventHandler(WaitTurn);
             }
             else
             {
-                if (gameType == GameType.BOT)
-                {
-                    player2.playGame.UpdateData += player1.playGame.UpdateData;
-                    player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
-                    player2.playGame.GameUpdate();
-                    currentPlayer = 1;
-                    player2.playGame.Next += null;
-                    player2.playGame.Next += new EventHandler(Turn);
-                    player2.playGame.Attack();
-                }
-                else
-                {
-                    player2.playGame.UpdateData += player1.playGame.UpdateData;
-                    player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
-                    player2.playGame.GameUpdate();
-                    Window.Children.Add(player2.playGame);
-                    player2.playGame.Next += null;
-                    player2.playGame.Next += new EventHandler(WaitTurn);
-                }
+                player2.playGame.UpdateData += player1.playGame.UpdateData;
+                player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
+                player2.playGame.GameUpdate();
+                Window.Children.Add(player2.playGame);
+                player2.playGame.Next += null;
+                player2.playGame.Next += new EventHandler(WaitTurn);
             }
 
             
+        }
+
+        private void BotTurn(object sender, EventArgs e)
+        {
+            Window.Children.Clear();
+            player1.playGame.resetNext();
+            Window.Children.Add(player1.playGame);
+            if (player1.playGame.deadShips == 7 || player2.playGame.deadShips == 7)
+            {
+                Window.Children.Clear();
+                Window.Children.Add(new GameOver(player1._name));
+            }
+            else
+            {
+                player2.playGame.UpdateData += player1.playGame.UpdateData;
+                player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
+                player2.playGame.GameUpdate();
+                player2.playGame.Attack();
+
+                player1.playGame.UpdateData += player2.playGame.UpdateData;
+                player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
+                player1.playGame.GameUpdate();
+
+                player1.playGame.Next += new EventHandler(BotTurn);
+            }
         }
 
     }

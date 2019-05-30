@@ -890,9 +890,6 @@ Background="#00436b">
                 <Path.Data>
                     <GeometryGroup>
                         <RectangleGeometry  Rect="50,50,25,25"/>
-                        <RectangleGeometry  Rect="50,50,25,25"/>
-                        <RectangleGeometry  Rect="50,50,25,25"/>
-                        <RectangleGeometry  Rect="50,50,25,25"/>
                     </GeometryGroup>
                 </Path.Data>
             </Path>
