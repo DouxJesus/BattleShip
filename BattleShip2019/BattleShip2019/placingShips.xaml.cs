@@ -82,9 +82,9 @@ namespace BattleShip2019
             {
                 selectedArrow.Stroke = new SolidColorBrush(Colors.Black);
             }
-            selectedArrow = rightPoly;
+            btnVertival.BorderBrush = new SolidColorBrush(Colors.White);
+            btnHorizontal.BorderBrush = new SolidColorBrush(Colors.Coral);
             horizontalOrientation = true;
-            rightPoly.Stroke = new SolidColorBrush(Colors.Coral);
         }
 
         private void ResetBoat(Path ship)
@@ -146,14 +146,15 @@ namespace BattleShip2019
 
         }
 
-        private void orientationMouseDown(object sender, MouseButtonEventArgs e)
+        private void btn_orientation(object sender, EventArgs e)
         {
-            Polygon arrow = (Polygon)sender;
-        
-            selectedArrow.Stroke = new SolidColorBrush(Colors.Black);
-            selectedArrow = arrow;
-            arrow.Stroke = new SolidColorBrush(Colors.Coral);
-            horizontalOrientation = arrow.Name.Equals("rightPoly") || arrow.Name.Equals("leftPoly");
+            Button btn = (Button)sender;
+
+            btnHorizontal.BorderBrush = new SolidColorBrush(Colors.White);
+            btnVertival.BorderBrush = new SolidColorBrush(Colors.White);
+
+            btn.BorderBrush = new SolidColorBrush(Colors.Coral);
+            horizontalOrientation = btn.Name.Equals("btnHorizontal");
         }
 
         private void gridMouseDown(object sender, MouseButtonEventArgs e)

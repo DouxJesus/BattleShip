@@ -181,7 +181,7 @@ namespace BattleShip2019
                 Next(this, e);
                 Next = null;
             }
-            if(grid.IsEnabled)
+            else if(grid.IsEnabled)
             {
                 int index = Array.IndexOf(OppGrid, grid);
                 int col = index % 10;
@@ -233,7 +233,6 @@ namespace BattleShip2019
                 selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2513C3"));
                 selectedGrid.IsEnabled = false;
                 UpdateData += playername + ": Flop it's water! \n";
-                //MessageBox.Show("Flop! It's water", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {

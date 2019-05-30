@@ -85,7 +85,6 @@ namespace BattleShip2019
             Window.Children.Clear();
             if (currentPlayer == 1)
             {
-                //playerOneplacingShips = new PlacingShips();
                 player1.InitPlacingShip();
                 Window.Children.Add(player1.placingShips);
                 if (gameType == GameType.BOT)
