@@ -29,7 +29,7 @@ namespace BattleShip2019
 
         public Ship[] oppShips;
 
-        int deadShips;
+        public int deadShips;
 
         string playername;
 
@@ -42,6 +42,7 @@ namespace BattleShip2019
 
         public Grid selectedGrid;
 
+        //BOT
         bool TouchedABoat;
         int lastAttack;
         int nextOrientation;
@@ -234,10 +235,8 @@ namespace BattleShip2019
             //To talk to playgame
             LastIndexShoot = index;
 
-            Next(this, new EventArgs());
-            Next = null;
-        
-    }
+            InvokeEvent.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        }
 
         public void GameUpdate()
         {
@@ -263,8 +262,6 @@ namespace BattleShip2019
                     MyGrid[LastIndexShoot].Children.Add(imgFire);
                 }
             }
-
-            InvokeEvent.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         public void btn_Invoke(object sender, EventArgs e)

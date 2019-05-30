@@ -156,6 +156,7 @@ namespace BattleShip2019
 
             Window.Children.Add(player1.playerWait);
             player1.playerWait.PlayerReady += new EventHandler(Turn);
+            player2.playGame.Next += new EventHandler(Turn);
         }
 
         private void Turn(object sender, EventArgs e)
@@ -163,50 +164,48 @@ namespace BattleShip2019
             //EventHandle GAMEOVER
 
 
-                Window.Children.Clear();
-                if (this.IsOver)
-                {
-                    //GAME FINISH
-                }
-                else if (currentPlayer == 1)
-                {
-                    
-                    player1.playGame.UpdateData += player2.playGame.UpdateData;
-                    player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
-                    player1.playGame.GameUpdate();
-                    Window.Children.Add(player1.playGame);
-                    player1.playGame.Next += null;
+            Window.Children.Clear();
+            if (player1.playGame.deadShips == 7 || player2.playGame.deadShips == 7)
+            {
+                //GAME FINISH
+            }
+            else if (currentPlayer == 1)
+            {
+
+                player1.playGame.UpdateData += player2.playGame.UpdateData;
+                player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
+                player1.playGame.GameUpdate();
+                Window.Children.Add(player1.playGame);
                 currentPlayer = 2;
-                    if (gameType == GameType.BOT)
-                    {
-                        player1.playGame.Next += new EventHandler(Turn);
-                    }
-                    else
-                        player1.playGame.Next += new EventHandler(WaitTurn);
+                if (gameType == GameType.BOT)
+                {
+                    player1.playGame.Next += new EventHandler(Turn);
+                }
+                else
+                    player1.playGame.Next += new EventHandler(WaitTurn);
+            }
+            else
+            {
+                if (gameType == GameType.BOT)
+                {
+                    player2.playGame.UpdateData += player1.playGame.UpdateData;
+                    player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
+                    player2.playGame.GameUpdate();
+                    currentPlayer = 1;
+                    player2.playGame.Next += null;
+                    player2.playGame.Next += new EventHandler(Turn);
+                    player2.playGame.Attack();
                 }
                 else
                 {
-                    if(gameType == GameType.BOT)
-                    {
-                        player2.playGame.UpdateData += player1.playGame.UpdateData;
-                        player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
-                        player2.playGame.GameUpdate();
-                        player2.playGame.Attack();
-                        currentPlayer = 1;
-                        player2.playGame.Next += null;
-                        player2.playGame.Next += new EventHandler(Turn);
-                    }
-                    else
-                    {
-                        player2.playGame.UpdateData += player1.playGame.UpdateData;
-                        player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
-                        player2.playGame.GameUpdate();
-                        Window.Children.Add(player2.playGame);
-                        player2.playGame.Next += null;
-                        player2.playGame.Next += new EventHandler(WaitTurn);
-                    }
-                    
+                    player2.playGame.UpdateData += player1.playGame.UpdateData;
+                    player2.playGame.LastIndexShoot = player1.playGame.LastIndexShoot;
+                    player2.playGame.GameUpdate();
+                    Window.Children.Add(player2.playGame);
+                    player2.playGame.Next += null;
+                    player2.playGame.Next += new EventHandler(WaitTurn);
                 }
+            }
 
             
         }
