@@ -47,7 +47,7 @@ namespace BattleShip2019
         bool TouchedABoat;
         int lastAttack;
         int nextOrientation;
-        int hitCount;
+        int phase;
 
 
         public void resetNext()
@@ -69,7 +69,7 @@ namespace BattleShip2019
             this.TouchedABoat = false;
             this.lastAttack = -1;
             this.nextOrientation = 1;
-            this.hitCount = 0;
+            this.phase = 0;
 
             InitializeGrid();
             DrawShips(ships, false);
@@ -215,19 +215,232 @@ namespace BattleShip2019
                 selectedGrid = grid;
                 selectedGrid.Background = new SolidColorBrush(Colors.Coral);
             }
-            
+
         }
 
+
+        //bool TouchedABoat;
+        //int lastAttack;
+        //int nextOrientation;
+        //int hitCount;
+        //for bot
+        //this.TouchedABoat = false;
+        //this.lastAttack = -1;
+        //this.nextOrientation = 1;
+        //this.phase = 0;   //Phase 0 first shot Phase 1 figuring out orientation - phase 2 orientation is known shoot down the boat - phase 3 boat is dead reset to phase 0 and shoot random
+        int knownOrientation = -1;
+        int lastShipCount = 0;
+        bool hasKilled = false;
+        int hitCount = 0;
+        int phase1InitialShot = 0;
         public void Attack()
         {
+            if(lastShipCount < deadShips)
+            {
+                hasKilled = true;
+                lastShipCount = deadShips;
+                knownOrientation = -1;
+                nextOrientation = 1;
+                phase = 0;
+                hitCount = 0;
+            } else
+            {
+                hasKilled = false;
+            }
             int index = -1;
             this.TouchedABoat = (lastAttack != -1 && OppGrid[lastAttack].IsEnabled);
-            if (TouchedABoat)       //Bot touched a boat, target next smart move
+            Console.WriteLine("Touched a boat " + TouchedABoat);
+            if ((TouchedABoat || phase > 0) && !hasKilled)       //Bot touched a boat or in phase superior than 0, target next smart move
             {
+                bool shotmade = false;
+                while (!shotmade)
+                {
+                    switch (phase)
+                    { 
+                        case 0:
+                            phase = 1;
+                            phase1InitialShot = lastAttack;
+                            break;
+                        case 1:
+                            if (TouchedABoat)    //We figured out which orientation it is
+                            {
+                                phase = 2;
+                                if (nextOrientation == 1 || nextOrientation == 3)   //vertical
+                                {
+                                    knownOrientation = 2;
+                                }
+                                else            //horizontal
+                                {
+                                    knownOrientation = 1;
+                                }
+                            }
+                            else                  //looking for orientation
+                            {
+                                if (lastAttack != phase1InitialShot) //When in phase 1 we shot and got in water -> try next orientation
+                                {
+                                    nextOrientation++;
+                                }
+                                bool decided = false;
+                                while (!decided)
+                                {
+                                    switch (this.nextOrientation)
+                                    {
+                                        case 1: //case up
+                                            if ((phase1InitialShot - 10) < 0) //cant shoot futher up -> 
+                                            {
+                                                nextOrientation++;
+                                            }
+                                            else
+                                            {
+                                                index = phase1InitialShot - 10;
+                                                decided = true;
+                                            }
+                                            break;
+                                        case 2: //case right
+                                            if ((phase1InitialShot + 1) % 10 < phase1InitialShot) //cant shoot futher right -> 
+                                            {
+                                                nextOrientation++;
+                                            }
+                                            else
+                                            {
+                                                index = phase1InitialShot + 1;
+                                                decided = true;
+                                            }
+                                            break;
+                                        case 3: //case down
+                                            if ((phase1InitialShot + 10) < 100) //cant shoot futher down -> 
+                                            {
+                                                nextOrientation++;
+                                            }
+                                            else
+                                            {
+                                                index = phase1InitialShot + 10;
+                                                decided = true;
+                                            }
+                                            break;
+                                        case 4: //case down
+                                            if ((phase1InitialShot - 1) % 10 > phase1InitialShot) //cant shoot futher right // This case should not happen except for submarine
+                                            {
+                                                nextOrientation++;
+                                                Console.WriteLine("Hoho something wrong happen");
+                                            }
+                                            else
+                                            {
+                                                index = phase1InitialShot - 1;
+                                                decided = true;
+                                            }
+                                            break;
 
+                                    }
+                                }
+                                shotmade = true;
+                            }
+                            break;
+                        case 2:
+                            if (knownOrientation == 2) //Its vertical
+                            {
+                                bool decided = false;
+                                while (!decided)
+                                {
+                                    if (TouchedABoat) //Keep shooting 
+                                    {
+                                        if (nextOrientation == 1) //shooting up
+                                        {
+                                            if (lastAttack - 10 > 0)
+                                            {
+                                                index = lastAttack - 10;
+                                                decided = true;
+                                            }
+                                            else //we reach the edge of the map and therefore of the boat change orientation
+                                            {
+                                                nextOrientation = 3;
+                                                lastAttack = phase1InitialShot;
+                                            }
+                                        }
+                                        else //shooting down
+                                        {
+                                            if (lastAttack + 10 < 100)
+                                            {
+                                                index = lastAttack + 10;
+                                                decided = true;
+                                            }
+                                            else //we reach the edge of the map and therefore of the boat change
+                                            {
+                                                nextOrientation = 1;
+                                                lastAttack = phase1InitialShot;
+                                            }
+                                        }
+                                    }
+                                    else //We hit the water in phase 2 -> it means we reach the edge of the target -> change orientation and go back to initial hit
+                                    {
+                                        if (nextOrientation == 1) //switch to down
+                                        {
+                                            nextOrientation = 3;
+                                        } else if (nextOrientation == 3) //switch to up
+                                        {
+                                            nextOrientation = 1;
+                                        }
+                                    }
+                                }
+                            }
+                            else                    //Its horizontal
+                            {
+                                bool decided = false;
+                                while (!decided)
+                                {
+                                    if (TouchedABoat) //Keep shooting 
+                                    {
+                                        if (nextOrientation == 2) //shooting left
+                                        {
+                                            if ((lastAttack + 1) % 10 < lastAttack)
+                                            {
+                                                index = lastAttack + 1;
+                                                decided = true;
+                                            }
+                                            else //we reach the edge of the map and therefore of the boat change orientation
+                                            {
+                                                nextOrientation = 4;
+                                                lastAttack = phase1InitialShot;
+                                            }
+                                        }
+                                        else //shooting down
+                                        {
+                                            if ((lastAttack - 1) % 10 > lastAttack)
+                                            {
+                                                index = lastAttack - 1;
+                                                decided = true;
+                                            }
+                                            else //we reach the edge of the map and therefore of the boat change
+                                            {
+                                                nextOrientation = 2;
+                                                lastAttack = phase1InitialShot;
+                                            }
+                                        }
+                                    }
+                                    else //We hit the water in phase 2 -> it means we reach the edge of the target -> change orientation and go back to initial hit
+                                    {
+                                        if (nextOrientation == 2) //switch to right
+                                        {
+                                            nextOrientation = 4;
+                                        }
+                                        else if (nextOrientation == 4) //switch to left
+                                        {
+                                            nextOrientation = 2;
+                                        }
+                                    }
+                                }
+                            }
+                            shotmade = true; ;
+                            break;
+                    }
+                }
+                
+                
+
+                     
             }
             else                    //Else target random
-            {
+            { 
                 Random random = new Random();
                 index = random.Next(0, 100);
                 while (!OppGrid[index].IsEnabled)
@@ -236,6 +449,7 @@ namespace BattleShip2019
                 }
 
             }
+            
             this.selectedGrid = OppGrid[index];
             Shot();
             this.lastAttack = index;
