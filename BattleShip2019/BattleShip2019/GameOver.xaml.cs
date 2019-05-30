@@ -20,9 +20,16 @@ namespace BattleShip2019
     /// </summary>
     public partial class GameOver : UserControl
     {
+        public event EventHandler MenuCall;
         public GameOver(string playername)
         {
             InitializeComponent();
+            LabelPlayer.Content = playername.ToUpper();
+        }
+
+        private void btnMenu(Object sender, EventArgs e )
+        {
+            MenuCall(this, e);
         }
     }
 }

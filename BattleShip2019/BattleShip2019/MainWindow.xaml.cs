@@ -16,71 +16,70 @@ using BattleShip2019.Game;
 
 namespace BattleShip2019
 {
-    /// <summary>
-    /// TODO :
-    /// 1. Main Menu
-    /// 2. Player class 
-    ///  BOT -> player with bool
-    ///  bot func -> in player
-    /// </summary>
+
+    //Define game type
+    public enum GameType { BOT, OneVersusOne }
+
     public partial class MainWindow : Window
     {
         Grid Window = new Grid();
-
-        //Define game type
-        enum GameType{ BOT, OneVersusOne }
 
         GameType gameType;
 
         Player player1;
         Player player2;
 
-        
+        GameOver gameOver;
+        MainMenu mainMenu;
 
         int currentPlayer;
-        bool IsOver = false;
 
         public MainWindow()
         {
             
             InitializeComponent();
             Content = Window;
-            this.MinWidth = 800;
-            this.MinHeight = 500;
-            this.Width = 800;
-            this.Height = 500;
-
-            //Change this according to menu
-            gameType = GameType.BOT;
-
-            //Menu
-            //Ask players names
-            //initialize waitframes
-
-            string name1 = "Default1";
-            string name2 = "Default2";
-
             this.MinWidth = 500;
             this.MinHeight = 500;
             this.Width = 953.286;
             this.Height = 600;
 
+            mainMenu = new MainMenu();
+            mainMenu.LaunchGame += new EventHandler(LaunchGame);
+            Window.Children.Add(mainMenu);
+            
+        }
 
+        private void LaunchGame(object sender, EventArgs e)
+        {
+            gameType = mainMenu.gameType;
             currentPlayer = 1;
             if (gameType == GameType.BOT)
             {
-                player1 = new Player(name1, 1);
+                player1 = new Player(mainMenu.player1Name, 1);
                 player2 = new Player("Edward The Bot", 2);
                 this.player1.InitPlayerWait();
-            } else
+            }
+            else
             {
-                player1 = new Player(name1, 1);
-                player2 = new Player(name2, 2);
+                player1 = new Player(mainMenu.player1Name, 1);
+                player2 = new Player(mainMenu.player2Name, 2);
                 this.player2.InitPlayerWait();
                 this.player1.InitPlayerWait();
             }
             Window.Children.Add(player1.playerWait);
             player1.playerWait.PlayerReady += new EventHandler(ShipInitialize);
+        }
+
+        private void WaitInitialize(object sender, EventArgs e)
+        {
+            Window.Children.Clear();
+            if (currentPlayer == 2)
+            {
+                Window.Children.Add(player2.playerWait);
+                player2.playerWait.PlayerReady += new EventHandler(ShipInitialize);
+            }
+
         }
 
         private void ShipInitialize(object sender, EventArgs e)
@@ -114,16 +113,27 @@ namespace BattleShip2019
            
         }
 
-        private void WaitInitialize(object sender, EventArgs e)
+        private void PlayStart(object sender, EventArgs e)
         {
+            if (this.Width != SystemParameters.PrimaryScreenWidth)
+                this.Width = 1100;
+            if (this.Height != SystemParameters.PrimaryScreenHeight)
+                this.Height = 600;
             Window.Children.Clear();
-            if (currentPlayer == 2)
-            {
-                Window.Children.Add(player2.playerWait);
-                player2.playerWait.PlayerReady += new EventHandler(ShipInitialize);
-            }
-            
+
+            currentPlayer = 1;
+
+            player1.InitGame(player2.myships);
+            player2.InitGame(player1.myships);
+
+
+            Window.Children.Add(player1.playerWait);
+            if (gameType == GameType.BOT)
+                player1.playerWait.PlayerReady += new EventHandler(BotTurn);
+            else
+                player1.playerWait.PlayerReady += new EventHandler(Turn);
         }
+
 
         private void WaitTurn(object sender, EventArgs e)
         {
@@ -144,33 +154,15 @@ namespace BattleShip2019
             
         }
 
-        private void PlayStart(object sender, EventArgs e)
-        {
-            if(this.Width != SystemParameters.PrimaryScreenWidth)
-                this.Width = 1100;
-            if(this.Height != SystemParameters.PrimaryScreenHeight)
-                this.Height = 600;
-            Window.Children.Clear();
-
-            currentPlayer = 1;
-
-            player1.InitGame(player2.myships);
-            player2.InitGame(player1.myships);
-
-
-            Window.Children.Add(player1.playerWait);
-            if(gameType == GameType.BOT)
-                player1.playerWait.PlayerReady += new EventHandler(BotTurn);
-            else
-                player1.playerWait.PlayerReady += new EventHandler(Turn);
-        }
-
         private void Turn(object sender, EventArgs e)
         {
             Window.Children.Clear();
             if (player1.playGame.deadShips == 7 || player2.playGame.deadShips == 7)
             {
-                //GAME FINISH
+                Window.Children.Clear();
+                gameOver = new GameOver(player1.playGame.deadShips == 7 ? player1._name : player2._name);
+                Window.Children.Add(gameOver);
+                gameOver.MenuCall += new EventHandler(CallMenu);
             }
             else if (currentPlayer == 1)
             {
@@ -178,13 +170,7 @@ namespace BattleShip2019
                 player1.playGame.LastIndexShoot = player2.playGame.LastIndexShoot;
                 player1.playGame.GameUpdate();
                 Window.Children.Add(player1.playGame);
-                if (gameType == GameType.BOT)
-                {
-                    currentPlayer = 2;
-                
-                }
-                else
-                    player1.playGame.Next += new EventHandler(WaitTurn);
+                player1.playGame.Next += new EventHandler(WaitTurn);
             }
             else
             {
@@ -207,7 +193,9 @@ namespace BattleShip2019
             if (player1.playGame.deadShips == 7 || player2.playGame.deadShips == 7)
             {
                 Window.Children.Clear();
-                Window.Children.Add(new GameOver(player1._name));
+                gameOver = new GameOver(player1.playGame.deadShips == 7 ? player1._name : player2._name);
+                Window.Children.Add(gameOver);
+                gameOver.MenuCall += new EventHandler(CallMenu);
             }
             else
             {
@@ -222,6 +210,14 @@ namespace BattleShip2019
 
                 player1.playGame.Next += new EventHandler(BotTurn);
             }
+        }
+
+        private void CallMenu(object sender, EventArgs e)
+        {
+            mainMenu.LaunchReset();
+            Window.Children.Clear();
+            Window.Children.Add(mainMenu);
+            mainMenu.LaunchGame += new EventHandler(LaunchGame);
         }
 
     }

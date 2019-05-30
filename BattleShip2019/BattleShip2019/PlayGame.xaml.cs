@@ -53,7 +53,6 @@ namespace BattleShip2019
         public void resetNext()
         {
             Next = null;
-            //Next = new eve
         }
 
         public PlayGame(string playername, Ship[] ships, Ship[] oppShips)
@@ -165,12 +164,12 @@ namespace BattleShip2019
                     {
                         if (!hiddenShip)
                         {
-                            MyGrid[index + i].Tag = ship.Id;
-                            MyGrid[index + i].Background = ship.ShipColor;
+                            grid[index + i].Tag = ship.Id;
+                            grid[index + i].Background = ship.ShipColor;
                         }
                         else
                         {
-                            OppGrid[index + i].Tag = ship.Id;
+                            grid[index + i].Tag = ship.Id;
                         }
                     }
                     else
@@ -242,8 +241,6 @@ namespace BattleShip2019
             this.lastAttack = index;
             //To talk to playgame
             LastIndexShoot = index;
-
-            //InvokeEvent.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         public void GameUpdate()
@@ -254,8 +251,8 @@ namespace BattleShip2019
             {
                 if (MyGrid[LastIndexShoot].Tag.Equals("water"))
                 {
-                    MyGrid[LastIndexShoot].Background = null;
-                    Uri fileUri = new Uri("/Content/img_water.jpg", UriKind.Relative);
+                    MyGrid[LastIndexShoot].Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#D3ECFD"));
+                    Uri fileUri = new Uri("/Content/img_waves.png", UriKind.Relative);
                     Image imgWater = new Image();
                     imgWater.Source = new BitmapImage(fileUri);
 
@@ -263,19 +260,12 @@ namespace BattleShip2019
                 }
                 else
                 {
-                    MyGrid[LastIndexShoot].Background = null;
-                    Uri fileUri = new Uri("/Content/img_fire.jpg", UriKind.Relative);
+                    Uri fileUri = new Uri("/Content/redcross.png", UriKind.Relative);
                     Image imgFire = new Image();
                     imgFire.Source = new BitmapImage(fileUri);
                     MyGrid[LastIndexShoot].Children.Add(imgFire);
                 }
             }
-        }
-
-        public void btn_Invoke(object sender, EventArgs e)
-        {
-            Next(this, e);
-            //Next = null;
         }
 
         public void Shot()
@@ -285,13 +275,21 @@ namespace BattleShip2019
             UpdateData = playername + " SHOOT " + (char)('A' + index / 10) + index % 10 + "\n";
             if (selectedGrid.Tag.Equals("water"))
             {
-                selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2513C3"));
+                selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#D3ECFD"));
+                Uri fileUri = new Uri("/Content/img_waves.png", UriKind.Relative);
+                Image imgWaves = new Image();
+                imgWaves.Source = new BitmapImage(fileUri);
+                selectedGrid.Children.Add(imgWaves);
                 selectedGrid.IsEnabled = false;
                 UpdateData += playername + ": Flop it's water! \n";
             }
             else
             {
                 selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#13C35A"));
+                Uri fileUri = new Uri("/Content/redcross.png", UriKind.Relative);
+                Image imgFire = new Image();
+                imgFire.Source = new BitmapImage(fileUri);
+                selectedGrid.Children.Add(imgFire);
                 selectedGrid.IsEnabled = false;
                 int id = Int32.Parse(selectedGrid.Tag.ToString());
                 ProgressBar.Value += 1;

@@ -142,5 +142,15 @@
     <Resource Include="Content\img_water.jpg" />
     <Resource Include="Content\img_fire.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\img_water2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\img_water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\img_waves.png" />
+    <Resource Include="Content\redcross.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
