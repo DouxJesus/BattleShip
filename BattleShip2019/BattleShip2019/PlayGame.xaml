@@ -1600,6 +1600,6 @@ Background="#00436b">
 
         <ProgressBar x:Name="ProgressBar" Minimum="0" Maximum="23" Value="0" HorizontalAlignment="Left" Height="10" Margin="904,121,0,0" VerticalAlignment="Top" Width="140"/>
 
-
-    </Grid>
+		<Button x:Name="InvokeEvent" Height="1" Width="1" Click="btn_Invoke" Content="ok"/>
+	</Grid>
 </UserControl>

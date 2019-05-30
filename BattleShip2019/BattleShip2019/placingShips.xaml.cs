@@ -417,10 +417,10 @@ namespace BattleShip2019
             ResetGrid();
         }
 
-        private void btn_RandomClick(object sender, RoutedEventArgs e)
+        public void btn_RandomClick(object sender, RoutedEventArgs e)
         {
             ResetGrid();
-            MyShips = new Ship[7] { new Submarine(0), new Submarine(1), new Destroyer(2), new Destroyer(3), new Cruiser(4), new Battleship(5), new Carrier(6)};
+            MyShips = new Ship[7] { new Submarine(0), new Submarine(1), new Destroyer(2), new Destroyer(3), new Cruiser(4), new Battleship(5), new Carrier(6) };
             Path[] MyPathsShips = new Path[] { submarine1, submarine2, destroyer1, destroyer2, cruiser1, battleship, carrier };
             foreach (Path ship in MyPathsShips)
             {
@@ -429,12 +429,12 @@ namespace BattleShip2019
                 ship.Stroke = new SolidColorBrush(Colors.Black);
             }
             Random random = new Random();
-            for(int i = 0; i < MyShips.Length; i++)
+            for (int i = 0; i < MyShips.Length; i++)
             {
                 int index = random.Next(0, 100);
-                horizontalOrientation = random.Next(0, 2) == 1 ? true: false;
+                horizontalOrientation = random.Next(0, 2) == 1 ? true : false;
                 myShip = MyShips[i];
-                while(!checkAvailablePlacement(ref index, false))
+                while (!checkAvailablePlacement(ref index, false))
                 {
                     index = random.Next(0, 100);
                 }
@@ -445,6 +445,7 @@ namespace BattleShip2019
             ResetOrientation();
         }
 
+        
     }
 }
 
