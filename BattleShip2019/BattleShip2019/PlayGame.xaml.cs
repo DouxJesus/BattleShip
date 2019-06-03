@@ -248,7 +248,7 @@ namespace BattleShip2019
                 hasKilled = false;
             }
             int index = -1;
-            this.TouchedABoat = (lastAttack != -1 && OppGrid[lastAttack].IsEnabled);
+            this.TouchedABoat = (lastAttack != -1 && !OppGrid[lastAttack].Tag.Equals("water"));
             Console.WriteLine("Touched a boat " + TouchedABoat);
             if ((TouchedABoat || phase > 0) && !hasKilled)       //Bot touched a boat or in phase superior than 0, target next smart move
             {
