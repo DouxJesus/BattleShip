@@ -24,6 +24,7 @@ namespace BattleShip2019
     {
 
         public event EventHandler Next;
+        public event EventHandler MenuEvent;
 
         public Grid[] MyGrid;
         public Grid[] OppGrid;
@@ -461,7 +462,7 @@ namespace BattleShip2019
         {
             Notifications.Text += UpdateData;
 
-            if(LastIndexShoot > 0 && LastIndexShoot < 100)
+            if(LastIndexShoot >= 0 && LastIndexShoot < 100)
             {
                 if (MyGrid[LastIndexShoot].Tag.Equals("water"))
                 {
@@ -522,6 +523,11 @@ namespace BattleShip2019
                 }
                 
             }
+        }
+
+        private void btnMenuClick(object sender, EventArgs e)
+        {
+            MenuEvent(this, e);
         }
 
     }

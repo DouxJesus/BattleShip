@@ -125,7 +125,8 @@ namespace BattleShip2019
 
             player1.InitGame(player2.myships);
             player2.InitGame(player1.myships);
-
+            player1.playGame.MenuEvent += new EventHandler(CallMenu);
+            player2.playGame.MenuEvent += new EventHandler(CallMenu);
 
             Window.Children.Add(player1.playerWait);
             if (gameType == GameType.BOT)
@@ -157,6 +158,8 @@ namespace BattleShip2019
         private void Turn(object sender, EventArgs e)
         {
             Window.Children.Clear();
+            player1.playGame.resetNext();
+            player2.playGame.resetNext();
             if (player1.playGame.deadShips == 7 || player2.playGame.deadShips == 7)
             {
                 Window.Children.Clear();
@@ -214,6 +217,9 @@ namespace BattleShip2019
 
         private void CallMenu(object sender, EventArgs e)
         {
+            player1 = null;
+           player2 = null;
+            currentPlayer = 1;
             mainMenu.LaunchReset();
             Window.Children.Clear();
             Window.Children.Add(mainMenu);
