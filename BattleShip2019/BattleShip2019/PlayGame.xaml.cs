@@ -229,21 +229,28 @@ namespace BattleShip2019
         //this.lastAttack = -1;
         //this.nextOrientation = 1;
         //this.phase = 0;   //Phase 0 first shot Phase 1 figuring out orientation - phase 2 orientation is known shoot down the boat - phase 3 boat is dead reset to phase 0 and shoot random
+        int initShot = 24;
+
         int knownOrientation = -1;
         int lastShipCount = 0;
         bool hasKilled = false;
         int hitCount = 0;
         int phase1InitialShot = 0;
+        bool doRandom = false;
         public void Attack()
         {
+            doRandom = false;
             if(lastShipCount < deadShips)
             {
+                Console.WriteLine("Enemy killed : " + lastShipCount+" < " + deadShips);
                 hasKilled = true;
                 lastShipCount = deadShips;
                 knownOrientation = -1;
                 nextOrientation = 1;
                 phase = 0;
+                doRandom = false;
                 hitCount = 0;
+                Console.WriteLine("Enemy killed ");
             } else
             {
                 hasKilled = false;
@@ -251,45 +258,61 @@ namespace BattleShip2019
             int index = -1;
             this.TouchedABoat = (lastAttack != -1 && !OppGrid[lastAttack].Tag.Equals("water"));
             Console.WriteLine("Touched a boat " + TouchedABoat);
+            
+            Console.WriteLine("phase : " + phase);
             if ((TouchedABoat || phase > 0) && !hasKilled)       //Bot touched a boat or in phase superior than 0, target next smart move
             {
+                Console.WriteLine((TouchedABoat || phase > 0) && !hasKilled);
                 bool shotmade = false;
                 while (!shotmade)
                 {
                     switch (phase)
-                    { 
+                    {
                         case 0:
+                            Console.WriteLine("Entering phase0");
                             phase = 1;
                             phase1InitialShot = lastAttack;
+                            TouchedABoat = false; //Reset for phase 1
+                            Console.WriteLine("Entering phase1 - Initial shot : " + phase1InitialShot);
                             break;
                         case 1:
+                            Console.WriteLine("Entering phase1");
                             if (TouchedABoat)    //We figured out which orientation it is
                             {
+                                Console.Write("Switching to phase2");
                                 phase = 2;
                                 if (nextOrientation == 1 || nextOrientation == 3)   //vertical
                                 {
+                                    Console.WriteLine(" - Orientation vertical");
                                     knownOrientation = 2;
                                 }
                                 else            //horizontal
                                 {
+                                    Console.WriteLine(" - orientation horizontal");
                                     knownOrientation = 1;
                                 }
+
                             }
                             else                  //looking for orientation
                             {
-                                if (lastAttack != phase1InitialShot) //When in phase 1 we shot and got in water -> try next orientation
+                                Console.WriteLine("Orientation "+ nextOrientation);
+                                if (OppGrid[lastAttack].Tag.Equals("water")) //When in phase 1 we shot and got in water -> try next orientation
                                 {
                                     nextOrientation++;
+                                    Console.WriteLine("Plouf, Passing to orientation :" + nextOrientation);
                                 }
+                                int timeout = 0;
                                 bool decided = false;
-                                while (!decided)
+                                while (!decided && timeout < 10)
                                 {
+                                    Console.WriteLine("Timeout :" + timeout);
                                     switch (this.nextOrientation)
                                     {
                                         case 1: //case up
-                                            if ((phase1InitialShot - 10) < 0) //cant shoot futher up -> 
+                                            if ((phase1InitialShot - 10) < 0 || !OppGrid[(phase1InitialShot - 10)].IsEnabled) //cant shoot futher up -> 
                                             {
                                                 nextOrientation++;
+                                                Console.WriteLine("cant shoot futher up -> Orientation " + nextOrientation);
                                             }
                                             else
                                             {
@@ -298,9 +321,10 @@ namespace BattleShip2019
                                             }
                                             break;
                                         case 2: //case right
-                                            if ((phase1InitialShot + 1) % 10 < phase1InitialShot) //cant shoot futher right -> 
+                                            if ((phase1InitialShot + 1) % 10 < phase1InitialShot % 10 || !OppGrid[(phase1InitialShot + 1)].IsEnabled) //cant shoot futher right -> 
                                             {
                                                 nextOrientation++;
+                                                Console.WriteLine("cant shoot futher right -> Orientation " + nextOrientation);
                                             }
                                             else
                                             {
@@ -309,9 +333,10 @@ namespace BattleShip2019
                                             }
                                             break;
                                         case 3: //case down
-                                            if ((phase1InitialShot + 10) < 100) //cant shoot futher down -> 
+                                            if ((phase1InitialShot + 10) > 100 || !OppGrid[(phase1InitialShot + 10)].IsEnabled) //cant shoot futher down -> 
                                             {
                                                 nextOrientation++;
+                                                Console.WriteLine("cant shoot futher down ->  Orientation " + nextOrientation);
                                             }
                                             else
                                             {
@@ -319,35 +344,48 @@ namespace BattleShip2019
                                                 decided = true;
                                             }
                                             break;
-                                        case 4: //case down
-                                            if ((phase1InitialShot - 1) % 10 > phase1InitialShot) //cant shoot futher right // This case should not happen except for submarine
+                                        case 4: //case left
+                                            if ((phase1InitialShot - 1) % 10 > phase1InitialShot % 10 || !OppGrid[(phase1InitialShot - 1)].IsEnabled) //cant shoot futher right // This case should not happen except for submarine
                                             {
                                                 nextOrientation++;
+                                                phase = 0;
                                                 Console.WriteLine("Hoho something wrong happen");
                                             }
                                             else
                                             {
                                                 index = phase1InitialShot - 1;
                                                 decided = true;
+                                                
+
                                             }
                                             break;
 
                                     }
+                                    timeout++;
                                 }
                                 shotmade = true;
+                                if (timeout >= 10)
+                                {
+                                    Console.WriteLine("Something bad happen : Timeout in phase 1 was reached");
+                                    doRandom = true;
+                                }
                             }
                             break;
                         case 2:
+                            Console.WriteLine("Entering phase2 " + knownOrientation);
                             if (knownOrientation == 2) //Its vertical
                             {
                                 bool decided = false;
-                                while (!decided)
+                                bool shootNow = false;
+                                int timeout = 0;
+                                while (!decided && timeout < 10)
                                 {
-                                    if (TouchedABoat) //Keep shooting 
+                                    
+                                    if (TouchedABoat || shootNow) //Keep shooting 
                                     {
                                         if (nextOrientation == 1) //shooting up
                                         {
-                                            if (lastAttack - 10 > 0)
+                                            if (lastAttack - 10 > 0 && OppGrid[lastAttack - 10].IsEnabled)
                                             {
                                                 index = lastAttack - 10;
                                                 decided = true;
@@ -360,7 +398,7 @@ namespace BattleShip2019
                                         }
                                         else //shooting down
                                         {
-                                            if (lastAttack + 10 < 100)
+                                            if (lastAttack + 10 < 100 && OppGrid[lastAttack + 10].IsEnabled)
                                             {
                                                 index = lastAttack + 10;
                                                 decided = true;
@@ -372,8 +410,9 @@ namespace BattleShip2019
                                             }
                                         }
                                     }
-                                    else //We hit the water in phase 2 -> it means we reach the edge of the target -> change orientation and go back to initial hit
+                                    else //We hit the water in phase 2 -> it means we reach the edge of the target -> change orientation to opposite side and go back to initial hit
                                     {
+                                        Console.WriteLine("phase2 - hit water case");
                                         if (nextOrientation == 1) //switch to down
                                         {
                                             nextOrientation = 3;
@@ -381,19 +420,28 @@ namespace BattleShip2019
                                         {
                                             nextOrientation = 1;
                                         }
+                                        lastAttack = phase1InitialShot;
+                                        shootNow = true;
                                     }
+                                    timeout++;
+                                }
+                                if (timeout >= 10)
+                                {
+                                    Console.WriteLine("Something bad happen : Timeout in phase 1 was reached");
+                                    doRandom = true;
                                 }
                             }
                             else                    //Its horizontal
                             {
                                 bool decided = false;
+                                bool shootNow = false;
                                 while (!decided)
                                 {
-                                    if (TouchedABoat) //Keep shooting 
+                                    if (TouchedABoat || shootNow) //Keep shooting 
                                     {
-                                        if (nextOrientation == 2) //shooting left
+                                        if (nextOrientation == 2) //shooting right
                                         {
-                                            if ((lastAttack + 1) % 10 < lastAttack)
+                                            if ((lastAttack + 1) % 10 > lastAttack % 10 && OppGrid[lastAttack + 1].IsEnabled)
                                             {
                                                 index = lastAttack + 1;
                                                 decided = true;
@@ -404,9 +452,9 @@ namespace BattleShip2019
                                                 lastAttack = phase1InitialShot;
                                             }
                                         }
-                                        else //shooting down
+                                        else //shooting left
                                         {
-                                            if ((lastAttack - 1) % 10 > lastAttack)
+                                            if ((lastAttack - 1) % 10 < lastAttack % 10 && OppGrid[lastAttack - 1].IsEnabled)
                                             {
                                                 index = lastAttack - 1;
                                                 decided = true;
@@ -428,10 +476,12 @@ namespace BattleShip2019
                                         {
                                             nextOrientation = 2;
                                         }
+                                        lastAttack = phase1InitialShot;
+                                        shootNow = true;
                                     }
                                 }
                             }
-                            shotmade = true; ;
+                            shotmade = true;
                             break;
                     }
                 }
@@ -441,7 +491,8 @@ namespace BattleShip2019
                      
             }
             else                    //Else target random
-            { 
+            {
+                Console.WriteLine("Shooting random ");
                 Random random = new Random();
                 index = random.Next(0, 100);
                 while (!OppGrid[index].IsEnabled)
@@ -450,12 +501,52 @@ namespace BattleShip2019
                 }
 
             }
+            if (doRandom)
+            {
+                Console.WriteLine("Shooting random -- forced");
+                knownOrientation = -1;
+                nextOrientation = 1;
+                phase = 0;
+                doRandom = false;
+                hitCount = 0;
+                Random random = new Random();
+                index = random.Next(0, 100);
+                while (!OppGrid[index].IsEnabled)
+                {
+                    index = random.Next(0, 100);
+                }
+            }
+            if(initShot != -1)      //Debug purposes
+            {
+                index = initShot;
+                initShot = -1;
+            }
+            Console.WriteLine("Shooting at " + index);
+            try
+            {
+                this.selectedGrid = OppGrid[index];
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("CATCH - Shooting random ");
+                knownOrientation = -1;
+                nextOrientation = 1;
+                phase = 0;
+                doRandom = false;
+                hitCount = 0;
+                Random random = new Random();
+                index = random.Next(0, 100);
+                while (!OppGrid[index].IsEnabled)
+                {
+                    index = random.Next(0, 100);
+                }
+            }
             
-            this.selectedGrid = OppGrid[index];
             Shot();
             this.lastAttack = index;
             //To talk to playgame
             LastIndexShoot = index;
+            Console.WriteLine("========================================");
         }
 
         public void GameUpdate()
