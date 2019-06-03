@@ -291,6 +291,7 @@ namespace BattleShip2019
                                     Console.WriteLine(" - orientation horizontal");
                                     knownOrientation = 1;
                                 }
+
                             }
                             else                  //looking for orientation
                             {
@@ -308,7 +309,7 @@ namespace BattleShip2019
                                     switch (this.nextOrientation)
                                     {
                                         case 1: //case up
-                                            if ((phase1InitialShot - 10) < 0 && !OppGrid[(phase1InitialShot - 10)].IsEnabled) //cant shoot futher up -> 
+                                            if ((phase1InitialShot - 10) < 0 || !OppGrid[(phase1InitialShot - 10)].IsEnabled) //cant shoot futher up -> 
                                             {
                                                 nextOrientation++;
                                                 Console.WriteLine("cant shoot futher up -> Orientation " + nextOrientation);
@@ -320,7 +321,7 @@ namespace BattleShip2019
                                             }
                                             break;
                                         case 2: //case right
-                                            if ((phase1InitialShot + 1) % 10 < phase1InitialShot % 10 && !OppGrid[(phase1InitialShot + 1)].IsEnabled) //cant shoot futher right -> 
+                                            if ((phase1InitialShot + 1) % 10 < phase1InitialShot % 10 || !OppGrid[(phase1InitialShot + 1)].IsEnabled) //cant shoot futher right -> 
                                             {
                                                 nextOrientation++;
                                                 Console.WriteLine("cant shoot futher right -> Orientation " + nextOrientation);
@@ -332,7 +333,7 @@ namespace BattleShip2019
                                             }
                                             break;
                                         case 3: //case down
-                                            if ((phase1InitialShot + 10) > 100 && !OppGrid[(phase1InitialShot + 10)].IsEnabled) //cant shoot futher down -> 
+                                            if ((phase1InitialShot + 10) > 100 || !OppGrid[(phase1InitialShot + 10)].IsEnabled) //cant shoot futher down -> 
                                             {
                                                 nextOrientation++;
                                                 Console.WriteLine("cant shoot futher down ->  Orientation " + nextOrientation);
@@ -344,7 +345,7 @@ namespace BattleShip2019
                                             }
                                             break;
                                         case 4: //case left
-                                            if ((phase1InitialShot - 1) % 10 > phase1InitialShot % 10 && !OppGrid[(phase1InitialShot - 1)].IsEnabled) //cant shoot futher right // This case should not happen except for submarine
+                                            if ((phase1InitialShot - 1) % 10 > phase1InitialShot % 10 || !OppGrid[(phase1InitialShot - 1)].IsEnabled) //cant shoot futher right // This case should not happen except for submarine
                                             {
                                                 nextOrientation++;
                                                 phase = 0;
@@ -384,7 +385,7 @@ namespace BattleShip2019
                                     {
                                         if (nextOrientation == 1) //shooting up
                                         {
-                                            if (lastAttack - 10 > 0 && !OppGrid[lastAttack - 10].IsEnabled)
+                                            if (lastAttack - 10 > 0 && OppGrid[lastAttack - 10].IsEnabled)
                                             {
                                                 index = lastAttack - 10;
                                                 decided = true;
@@ -397,7 +398,7 @@ namespace BattleShip2019
                                         }
                                         else //shooting down
                                         {
-                                            if (lastAttack + 10 < 100 && !OppGrid[lastAttack + 10].IsEnabled)
+                                            if (lastAttack + 10 < 100 && OppGrid[lastAttack + 10].IsEnabled)
                                             {
                                                 index = lastAttack + 10;
                                                 decided = true;
@@ -438,9 +439,9 @@ namespace BattleShip2019
                                 {
                                     if (TouchedABoat || shootNow) //Keep shooting 
                                     {
-                                        if (nextOrientation == 2) //shooting left
+                                        if (nextOrientation == 2) //shooting right
                                         {
-                                            if ((lastAttack + 1) % 10 < lastAttack % 10 && !OppGrid[lastAttack + 1].IsEnabled)
+                                            if ((lastAttack + 1) % 10 > lastAttack % 10 && OppGrid[lastAttack + 1].IsEnabled)
                                             {
                                                 index = lastAttack + 1;
                                                 decided = true;
@@ -451,9 +452,9 @@ namespace BattleShip2019
                                                 lastAttack = phase1InitialShot;
                                             }
                                         }
-                                        else //shooting down
+                                        else //shooting left
                                         {
-                                            if ((lastAttack - 1) % 10 > lastAttack % 10 && !OppGrid[lastAttack - 1].IsEnabled)
+                                            if ((lastAttack - 1) % 10 < lastAttack % 10 && OppGrid[lastAttack - 1].IsEnabled)
                                             {
                                                 index = lastAttack - 1;
                                                 decided = true;
