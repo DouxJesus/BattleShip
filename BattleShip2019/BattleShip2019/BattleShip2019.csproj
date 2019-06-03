@@ -58,7 +58,6 @@
     <Compile Include="GameOver.xaml.cs">
       <DependentUpon>GameOver.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\Bot.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Game\Ship.cs" />
     <Page Include="GameOver.xaml">
@@ -98,12 +97,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Network\Client.cs" />
-    <Compile Include="Network\NetworkControllerClient.cs" />
-    <Compile Include="Network\NetworkControllerServer.cs" />
-    <Compile Include="Network\ProgramClient.cs" />
-    <Compile Include="Network\ProgramServer.cs" />
-    <Compile Include="Network\Server.cs" />
     <Compile Include="PlacingShips.xaml.cs">
       <DependentUpon>PlacingShips.xaml</DependentUpon>
     </Compile>
