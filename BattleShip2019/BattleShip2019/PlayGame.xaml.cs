@@ -486,43 +486,48 @@ namespace BattleShip2019
         public void Shot()
         {
             int index = Array.IndexOf(OppGrid, selectedGrid);
-            LastIndexShoot = index;
-            UpdateData = playername + " SHOOT " + (char)('A' + index / 10) + index % 10 + "\n";
-            if (selectedGrid.Tag.Equals("water"))
+            if(selectedGrid.IsEnabled)
             {
-                selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#D3ECFD"));
-                Uri fileUri = new Uri("/Content/img_waves.png", UriKind.Relative);
-                Image imgWaves = new Image();
-                imgWaves.Source = new BitmapImage(fileUri);
-                selectedGrid.Children.Add(imgWaves);
-                selectedGrid.IsEnabled = false;
-                UpdateData += playername + ": Flop it's water! \n";
-            }
-            else
-            {
-                selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#13C35A"));
-                Uri fileUri = new Uri("/Content/redcross.png", UriKind.Relative);
-                Image imgFire = new Image();
-                imgFire.Source = new BitmapImage(fileUri);
-                selectedGrid.Children.Add(imgFire);
-                selectedGrid.IsEnabled = false;
-                int id = Int32.Parse(selectedGrid.Tag.ToString());
-                ProgressBar.Value += 1;
-                //Shoot ship class
-                if (!oppShips[id].Shot())
+                LastIndexShoot = index;
+                UpdateData = playername + " SHOOT " + (char)('A' + index / 10) + index % 10 + "\n";
+                if (selectedGrid.Tag.Equals("water"))
                 {
-                    //The boat is dead
-                    DrawShip(oppShips[id], OppGrid, false);
-                    deadShips += 1;
-                    ProgressBar.Value += 1;
-                    UpdateData += playername + ": Touch and Sink! \n";
+                    selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#D3ECFD"));
+                    Uri fileUri = new Uri("/Content/img_waves.png", UriKind.Relative);
+                    Image imgWaves = new Image();
+                    imgWaves.Source = new BitmapImage(fileUri);
+                    selectedGrid.Children.Add(imgWaves);
+                    selectedGrid.IsEnabled = false;
+                    UpdateData += playername + ": Flop it's water! \n";
                 }
                 else
                 {
-                   UpdateData += playername + ": Touch! \n";
+                    selectedGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#13C35A"));
+                    Uri fileUri = new Uri("/Content/redcross.png", UriKind.Relative);
+                    Image imgFire = new Image();
+                    imgFire.Source = new BitmapImage(fileUri);
+                    selectedGrid.Children.Add(imgFire);
+                    selectedGrid.IsEnabled = false;
+                    int id = Int32.Parse(selectedGrid.Tag.ToString());
+                    ProgressBar.Value += 1;
+                    //Shoot ship class
+                    if (!oppShips[id].Shot())
+                    {
+                        //The boat is dead
+                        DrawShip(oppShips[id], OppGrid, false);
+                        deadShips += 1;
+                        this.ShipCountGraphic.Content = deadShips;
+                        ProgressBar.Value += 1;
+                        UpdateData += playername + ": Touch and Sink! \n";
+                    }
+                    else
+                    {
+                        UpdateData += playername + ": Touch! \n";
+                    }
+
                 }
-                
             }
+            
         }
 
         private void btnMenuClick(object sender, EventArgs e)
