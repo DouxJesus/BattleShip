@@ -109,7 +109,7 @@ namespace BattleShip2019
 
         public Carrier(int id) : base(5, id)
         {
-            this.shipColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#DE003F"));
+            this.shipColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#66FFFF"));
             this.name = "Carrier";
         }
     }

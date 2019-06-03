@@ -885,7 +885,7 @@ Background="#00436b">
                     </GeometryGroup>
                 </Path.Data>
             </Path>
-            <Path Stroke="Black" StrokeThickness="2" Fill="#DE003F" Canvas.Left="137.6" Canvas.Top="52.2" Height="27.2" Stretch="Fill" Width="148"
+            <Path Stroke="Black" StrokeThickness="2" Fill="#66FFFF" Canvas.Left="137.6" Canvas.Top="52.2" Height="27.2" Stretch="Fill" Width="148"
                 	x:Name="carrier" MouseLeftButtonDown="ship_MouseLeftButtonDown" >
                 <Path.Data>
                     <GeometryGroup>

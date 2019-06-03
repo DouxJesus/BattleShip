@@ -9,6 +9,6 @@
     <Grid x:Name="gridBack"  Width="800" Height="500" VerticalAlignment="Top">
         <Label  x:Name="LabelPlayer"   Content="PLAYER 1" FontSize="50" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Center" Margin="291,119,285,0" VerticalAlignment="Top" />
         <Label Content="WON THE GAME !" FontSize="50" FontWeight="DemiBold" Foreground ="White" HorizontalAlignment="Center" Margin="185,193,179,0" VerticalAlignment="Top" Height="105" Width="436"/>
-        <Button  x:Name="btnReady" Click="btnMenu" Content="MENU" FontSize="30" FontWeight="DemiBold" Foreground ="White" Background="#2CAEAE" HorizontalAlignment="Left" Margin="320,298,0,0" VerticalAlignment="Top" Width="151" Height="56"/>
+        <Button x:Name="btnReady" Click="btnMenu" Content="MENU" FontSize="30" FontWeight="DemiBold" Foreground ="White" Background="#2CAEAE" HorizontalAlignment="Left" Margin="320,298,0,0" VerticalAlignment="Top" Width="151" Height="56"/>
     </Grid>
 </UserControl>
